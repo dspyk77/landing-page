@@ -4,8 +4,8 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
-
-cardNum = [2,3,4,5,6,7,8,9,10,"Ace","Jack","Queen","King"]
+// cardNum = [2,3,4,5,6,7,8,9,10,"Ace","Jack","Queen","King"]
+cardNum = [2,3,4,5,6,7,8,9,10,11,12,13,14]
 cardSuit = ["Hearts", "Clubs", "Dimonds", "Spades"]
 cardDeck = []
 
@@ -22,10 +22,13 @@ for (i=0; i < cardNum.length; i++ ) {
     } else if (x == 1 || x == 3) {
       cardColor = "Black"
     }
+
+    // convert cardNum[11 - 14] to have name value of royalty accordingly 
     var card = {
       value: cardNum[i].toString(), 
+      name: "", 
       suit: cardSuit[x],
-      color: cardColor
+      color: cardColor,
     }
 
     // cardDeck.push(`${cardNum[i]} of ${cardSuit[x]}`)
@@ -37,17 +40,29 @@ for (i=0; i < cardNum.length; i++ ) {
 
 function drawCard() {
 
-  var playerCardDrawn = getRandomInt(0, 51) 
+  var playerCardIndex = getRandomInt(0, 51) 
   console.log("your card is ... ")
-  console.log(cardDeck[playerCardDrawn])
+  console.log(cardDeck[playerCardIndex])
 
-  var cpuCardDrawn = getRandomInt(0, 51)
+  var cpuCardIndex = getRandomInt(0, 51)
   console.log("CPU card is ...")
-  console.log(cardDeck[cpuCardDrawn])
+  console.log(cardDeck[cpuCardIndex])
 
-  if (playerCardDrawn > cpuCardDrawn) {
+  var playerCardDrawn = cardDeck[playerCardIndex]
+  var cpuCardDrawn = cardDeck[cpuCardIndex]
+
+  console.log("test")
+  console.log(playerCardDrawn)
+  console.log(cpuCardDrawn)
+
+  console.log(playerCardDrawn["value"])
+  console.log(cpuCardDrawn["value"])
+
+  if (playerCardDrawn["value"] > cpuCardDrawn["value"]) {
     console.log("You win!!")
-  } else {
+  } else if (playerCardDrawn["value"] < cpuCardDrawn["value"]) {
     console.log("uh oh you have the low card! ")
+  } else {
+    console.log(`It's a Draw! You're saying to yourself, "I know thats kind of the point, we're drawing cards"`)
   }
 }
