@@ -13,9 +13,9 @@ cardDeck = []
 console.log(cardNum)
 console.log(cardSuit)
 
-for (i=0; i < cardNum.length; i++ ) {
+for (i = 0; i < cardNum.length; i++ ) {
   // console.log(`i:${i}`)
-  for (x=0; x < cardSuit.length; x++) {
+  for (x = 0; x < cardSuit.length; x++) {
     // console.log(`i:${i}, x:${x}`)
     if (x == 0 || x == 2) {
       var cardColor = "Red"
@@ -23,21 +23,41 @@ for (i=0; i < cardNum.length; i++ ) {
       cardColor = "Black"
     }
 
-    if (i == 9) {
-      var royalty = "Ace"
-    } else if (i == 10) {
-      royalty = "Jack"
-    } else if (i == 11) {
-      royalty = "Queen"
-    } else if (i == 12) {
-      royalty = "King"
-    } else {
-      royalty = ""
+    // if (i == 9) {
+    //   var cardName = "Ace"
+    // } else if (i == 10) {
+    //   cardName = "Jack"
+    // } else if (i == 11) {
+    //   cardName = "Queen"
+    // } else if (i == 12) {
+    //   cardName = "King"
+    // } else {
+    //   cardName = (i + 2).toString()
+    // }
+
+    var cardName = null
+
+    switch(i) {
+      case 9: 
+        cardName = "Ace"
+        break;
+      case 10:
+        cardName = "Jack"
+        break;
+      case 11:
+        cardName = "Queen"
+        break;
+      case 12:
+        cardName = "King"
+        break;
+      default: 
+        cardName = (i + 2).toString()
     }
-    // convert cardNum[11 - 14] to have name value of royalty accordingly 
+
+    // convert cardNum[11 - 14] to have name value of cardName accordingly 
     var card = {
       value: cardNum[i], 
-      name: royalty, 
+      name: cardName, 
       suit: cardSuit[x],
       color: cardColor,
     }
@@ -67,44 +87,56 @@ function drawCard() {
   var cpuCardDrawnSuit = cardDeck[cpuCardIndex].suit
 
   if (playerCardDrawnValue > cpuCardDrawnValue) {
-    
-    if (playerCardDrawnValue <= 10 && cpuCardDrawnValue <= 10) {
-      console.log(`${playerCardDrawnValue} of ${playerCardDrawnSuit} is higher than ${cpuCardDrawnValue} of ${cpuCardDrawnSuit}!`)
-
-    } else if (playerCardDrawnValue >= 11 && cpuCardDrawnValue <= 10) {
-      console.log(`${playerCardDrawnName} of ${playerCardDrawnSuit} is higher than ${cpuCardDrawnValue} of ${cpuCardDrawnSuit}!`)
-
-    } else if (playerCardDrawnValue >= 11 && cpuCardDrawnValue >= 11) {
-      console.log(`${playerCardDrawnName} of ${playerCardDrawnSuit} is higher than ${cpuCardDrawnName} of ${cpuCardDrawnSuit}!`)
-    }
+    console.log(`${playerCardDrawnName} of ${playerCardDrawnSuit} is higher than ${cpuCardDrawnName} of ${cpuCardDrawnSuit}!`)
     console.log("You Win!!!")
   } else if (playerCardDrawnValue < cpuCardDrawnValue) {
-
-    if (cpuCardDrawnValue <= 10 && playerCardDrawnValue <= 10) {
-      console.log(`${playerCardDrawnValue} of ${playerCardDrawnSuit} is lower than ${cpuCardDrawnValue} of ${cpuCardDrawnSuit}!`)
-
-    } else if (cpuCardDrawnValue >= 11 && playerCardDrawnValue <= 10) {
-      console.log(`${playerCardDrawnValue} of ${playerCardDrawnSuit} is lower than ${cpuCardDrawnName} of ${cpuCardDrawnSuit}!`)
-
-    } else if (cpuCardDrawnValue >= 11 && playerCardDrawnValue >= 11) {
-      console.log(`${playerCardDrawnName} of ${playerCardDrawnSuit} is lower than ${cpuCardDrawnName} of ${cpuCardDrawnSuit}!`)
-
-    }
+    console.log(`${playerCardDrawnName} of ${playerCardDrawnSuit} is lower than ${cpuCardDrawnName} of ${cpuCardDrawnSuit}!`)
     console.log("uh oh you have the low card!")
   } else {
-
-     if (playerCardDrawnValue <= 10) { // Dont have to check both cards here since both value's are the same 
-      console.log(`${playerCardDrawnValue} of ${playerCardDrawnSuit} has the same value as ${cpuCardDrawnValue} of ${cpuCardDrawnSuit}!`)
-      
-    } else if (playerCardDrawnValue >= 11) {
-      console.log(`${playerCardDrawnName} of ${playerCardDrawnSuit} has the same value as ${cpuCardDrawnName} of ${cpuCardDrawnSuit}!`)
-    }
+    console.log(`${playerCardDrawnName} of ${playerCardDrawnSuit} has the same value as ${cpuCardDrawnName} of ${cpuCardDrawnSuit}!`)
     console.log(`It's a Draw! You're saying to yourself, "I know thats kind of the point, we're drawing cards" I mean your cards are the same.. 
     well the value is the same not neccesaraly the same exact card, the suit might be different... whatever you get it just draw again`)
   }
 }
 
   // notes and first attempts on drawCard()
+
+  // if (playerCardDrawnValue > cpuCardDrawnValue) {
+    
+  //   if (playerCardDrawnValue <= 10 && cpuCardDrawnValue <= 10) {
+  //     console.log(`${playerCardDrawnValue} of ${playerCardDrawnSuit} is higher than ${cpuCardDrawnValue} of ${cpuCardDrawnSuit}!`)
+
+  //   } else if (playerCardDrawnValue >= 11 && cpuCardDrawnValue <= 10) {
+  //     console.log(`${playerCardDrawnName} of ${playerCardDrawnSuit} is higher than ${cpuCardDrawnValue} of ${cpuCardDrawnSuit}!`)
+
+  //   } else if (playerCardDrawnValue >= 11 && cpuCardDrawnValue >= 11) {
+  //     console.log(`${playerCardDrawnName} of ${playerCardDrawnSuit} is higher than ${cpuCardDrawnName} of ${cpuCardDrawnSuit}!`)
+  //   }
+  //   console.log("You Win!!!")
+  // } else if (playerCardDrawnValue < cpuCardDrawnValue) {
+
+  //   if (cpuCardDrawnValue <= 10 && playerCardDrawnValue <= 10) {
+  //     console.log(`${playerCardDrawnValue} of ${playerCardDrawnSuit} is lower than ${cpuCardDrawnValue} of ${cpuCardDrawnSuit}!`)
+
+  //   } else if (cpuCardDrawnValue >= 11 && playerCardDrawnValue <= 10) {
+  //     console.log(`${playerCardDrawnValue} of ${playerCardDrawnSuit} is lower than ${cpuCardDrawnName} of ${cpuCardDrawnSuit}!`)
+
+  //   } else if (cpuCardDrawnValue >= 11 && playerCardDrawnValue >= 11) {
+  //     console.log(`${playerCardDrawnName} of ${playerCardDrawnSuit} is lower than ${cpuCardDrawnName} of ${cpuCardDrawnSuit}!`)
+
+  //   }
+  //   console.log("uh oh you have the low card!")
+  // } else {
+
+  //    if (playerCardDrawnValue <= 10) { // Dont have to check both cards here since both value's are the same 
+  //     console.log(`${playerCardDrawnValue} of ${playerCardDrawnSuit} has the same value as ${cpuCardDrawnValue} of ${cpuCardDrawnSuit}!`)
+      
+  //   } else if (playerCardDrawnValue >= 11) {
+  //     console.log(`${playerCardDrawnName} of ${playerCardDrawnSuit} has the same value as ${cpuCardDrawnName} of ${cpuCardDrawnSuit}!`)
+  //   }
+  //   console.log(`It's a Draw! You're saying to yourself, "I know thats kind of the point, we're drawing cards" I mean your cards are the same.. 
+  //   well the value is the same not neccesaraly the same exact card, the suit might be different... whatever you get it just draw again`)
+  // }
 
   // console.log(cardDeck[playerCardIndex].value)
   // console.log(cardDeck[cpuCardIndex].value)
