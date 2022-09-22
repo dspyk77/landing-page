@@ -84,7 +84,7 @@ function drawCard() {
       console.log(`${playerCardDrawnValue} of ${playerCardDrawnSuit} is lower than ${cpuCardDrawnValue} of ${cpuCardDrawnSuit}!`)
 
     } else if (cpuCardDrawnValue >= 11 && playerCardDrawnValue <= 10) {
-      console.log(`${playerCardDrawnName} of ${playerCardDrawnSuit} is lower than ${cpuCardDrawnValue} of ${cpuCardDrawnSuit}!`)
+      console.log(`${playerCardDrawnValue} of ${playerCardDrawnSuit} is lower than ${cpuCardDrawnName} of ${cpuCardDrawnSuit}!`)
 
     } else if (cpuCardDrawnValue >= 11 && playerCardDrawnValue >= 11) {
       console.log(`${playerCardDrawnName} of ${playerCardDrawnSuit} is lower than ${cpuCardDrawnName} of ${cpuCardDrawnSuit}!`)
@@ -93,7 +93,7 @@ function drawCard() {
     console.log("uh oh you have the low card!")
   } else {
 
-     if (playerCardDrawnValue <= 10) {
+     if (playerCardDrawnValue <= 10) { // Dont have to check both cards here since both value's are the same 
       console.log(`${playerCardDrawnValue} of ${playerCardDrawnSuit} has the same value as ${cpuCardDrawnValue} of ${cpuCardDrawnSuit}!`)
       
     } else if (playerCardDrawnValue >= 11) {
