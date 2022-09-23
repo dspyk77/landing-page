@@ -15,43 +15,73 @@
 </head>
 
 <body>
-  <header class="container-fluid">
-
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <header class="container-fluid"> 
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"> <!--Nav Bar-->
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Fixed navbar</a>
+        <a class="navbar-brand" aria-current="page" href="#">DS</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link"  href="#">Projects</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="#">About Me</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./testpage/test.html">Test page</a>
+              <a class="nav-link" href="./testpage/test.html">Contact</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    
-    <main class="container mt-5">
-      <div class="bg-light p-5 rounded">
+  </header>
+
+  <main class="container">
+    <section> <!-- Jumbotron -->
+      <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+          <h1 class="display-5 fw-bold">Passion.</h1>
+          <h1 class="display-5 fw-bold">Building.</h1>
+          <p class="col-md-8 fs-4">
+            Welcome to my landing page! I'm so greatfull you're here! The purpose of this page is first and formost to showcase my passion of building apps.
+            I am a self tought programmer who has a passion for real life solutions to real life problems. 
+          </p>
+          <button class="btn btn-primary btn-lg" type="button">Projects</button> 
+        </div>
+      </div>
+    </section>
+    <section> <!-- light Summary section-->
+      <div>
+
+      </div>
+    </section>
+    <section>
+      <div class="bg-light p-5 rounded"> <!-- Small/fun project section-->
         <h1>High Card Low Card</h1>
         <p class="lead">
-          Here is a little project I thoought would be fun. Seemingly simple right? On this side, yeah! Just click the <button onclick="drawCard()" class="btn btn-sm btn-primary">Draw button!</button> 
+          Here is a little project I thought would be fun. Seemingly simple right? On this side, yeah! Just click the <button onclick="drawCard()" class="btn btn-sm btn-primary">Draw button!</button> 
           and just like that you played a little game of high card low card! Little did I know how many trips I was going to have to take to the white board!
-          If you liked this take a look at all my other projects! 
-         </p>
-        <a class="btn btn-lg btn-primary" href="../components/navbar/" role="button">View navbar docs &raquo;</a>
+          If you liked this simple yet fun app, take a look at all my other projects! 
+        </p>
+        <div class="container text-center">
+          <div class="row align-items-lg-start">
+            <div class="col border">
+              
+            </div>
+            <div class="col border">
+              <p>test</p>
+            </div>
+          </div>
+          
+        </div>
       </div>
-    </main>
-  </header>
-  <footer>
+    </section>
+  </main>
+  
+  <footer class="container-fluid">
 
   </footer>
   <!-- JavaScript Bundle with Popper -->
