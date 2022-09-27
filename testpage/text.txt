@@ -93,3 +93,12 @@ CPU WON GIF
 
 ITS A DRAW GIF
 <iframe src="https://giphy.com/embed/VPevIZhmlNOms" width="384" height="480"></iframe>
+
+
+left off displaying GIF's with cards 
+working on setTimeout() for GIF and Card display timing 
+
+
+
+
+</section></section>
