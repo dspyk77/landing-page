@@ -106,21 +106,29 @@ function getCardColor(x) {
   return cardColor
 }
 
-for (i = 0; i < cardNum.length; i++) {
-  for (x = 0; x < cardSuit.length; x++) {
-    var cardColor = getCardColor(x);
-    var cardSuitDisplay = getCardSuitDisplay(x);
-    var cardName = getCardName(i);
-    var cardNameDisplay = getCardNameDisplay(cardName)
-    var card = {
-      value: cardNum[i],
-      name: cardName,
-      displayName: cardNameDisplay,
-      suit: cardSuit[x],
-      displaySuit: cardSuitDisplay,
-      color: cardColor,
-    };
-    cardDeck.push(card)
+function genCard(i, x) {
+  var cardColor = getCardColor(x);
+  var cardSuitDisplay = getCardSuitDisplay(x);
+  var cardName = getCardName(i);
+  var cardNameDisplay = getCardNameDisplay(cardName)
+  var card = {
+    value: cardNum[i],
+    name: cardName,
+    displayName: cardNameDisplay,
+    suit: cardSuit[x],
+    displaySuit: cardSuitDisplay,
+    color: cardColor,
+  };
+  return card
+}
+
+function genCards () {
+  for (i = 0; i < cardNum.length; i++) {
+    for (x = 0; x < cardSuit.length; x++) {
+
+      var card = genCard(i , x)
+      cardDeck.push(card)
+    }
   }
 }
 
@@ -273,6 +281,8 @@ function clearAllBox() {
   displayPlayerCard.className = "";
   displayCpuCard.className = "";
 }
+
+genCards ()
 
 // notes and first attempts on drawCard()
 
