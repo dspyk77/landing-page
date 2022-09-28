@@ -7,9 +7,7 @@ var displayPlayerCardName = document.querySelector("#display-player-card-name");
 var displayCpuCardName = document.querySelector("#display-cpu-card-name");
 var wonLostMessage = document.querySelector("#won-lost-msg");
 var displayPlayerCardTopName = document.querySelector("#player-card-top-name");
-var displayPlayerBottomTopName = document.querySelector(
-  "#player-card-bottom-name"
-);
+var displayPlayerBottomTopName = document.querySelector("#player-card-bottom-name");
 var displayCpuCardTopName = document.querySelector("#cpu-card-top-name");
 var displayCpuCardBottomName = document.querySelector("#cpu-card-bottom-name");
 var displayPlayerSuit = document.querySelector("#player-suit-display");
@@ -22,7 +20,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-cardDeck = [];
+var cardDeck = genCardDeck();
 
 function drawCard() {
   var playerCardIndex = getRandomInt(0, 51);
@@ -170,5 +168,3 @@ function clearAllBox() {
   displayPlayerCard.className = "";
   displayCpuCard.className = "";
 }
-
-genCards();

@@ -2,13 +2,15 @@
 cardNum = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 cardSuit = ["Hearts", "Clubs", "Dimonds", "Spades"];
 
-function genCards () {
+function genCardDeck () {
+  var cardDeck = [];
   for (i = 0; i < cardNum.length; i++) {
     for (x = 0; x < cardSuit.length; x++) {
       var card = genCard(i , x)
       cardDeck.push(card)
     }
   }
+  return cardDeck;
 }
 
 function genCard(i, x) {
