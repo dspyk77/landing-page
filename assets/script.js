@@ -36,6 +36,8 @@ function playGame() {
   // var playerCardDrawnSuitDisplay = cardDeck[playerCardIndex].displaySuit;
   // var playerCardDrawnName = cardDeck[playerCardIndex].name;
   // var playerCardDrawnSuit = cardDeck[playerCardIndex].suit;
+
+  // extract to seperate function
   var playerCard = cardDeck[playerCardIndex]
 
   if (playerCard.color == "Black") {
