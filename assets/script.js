@@ -12,17 +12,91 @@ var displayCpuCardTopName = document.querySelector("#cpu-card-top-name");
 var displayCpuCardBottomName = document.querySelector("#cpu-card-bottom-name");
 var displayPlayerSuit = document.querySelector("#player-suit-display");
 var displayCpuSuit = document.querySelector("#cpu-suit-display");
-
-function getRandomInt(min, max) {
-  // The maximum is inclusive and the minimum is inclusive
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
+// see ./assets/card-generation.js
 var cardDeck = genCardDeck();
 
-function drawCard() {
+
+// main function to display both cards and results
+// pass in the indexed cards from getDrawnCard()
+function displayDrawnCards(playerCardIndex, cpuCardIndex) {
+  // investigate using event listeners for on click and hide/show GIF
+
+  // display player card when draw card is clicked
+
+  // then player GIF
+
+  // then CPU draw GIF
+
+  // then CPU card and player won/lost 
+
+  // display player card name and suit function 
+    // pass in indexed cards (playerCardIndex, cpuCardIndex)
+    // declare playerCardDrawnNameDisplay - playerCardDrawnSuitDisplay
+    // displayPlayerCardTopName, displayPlayerCardBottomName and playerCardDrawnSuitDisplay insertAdjacentHTML
+
+  // display CPU drawing GIF
+    // cpuGifBox insertAdjacentHTM
+
+  // display cpu card name and suit function 
+    // pass in indexed cards (playerCardIndex, cpuCardIndex)
+    // declare cpuCardDrawnNameDisplay - cpuCardDrawnSuitDisplay
+    // displayCpuCardTopName, displayCpuCardBottomName and cpuCardDrawnSuitDisplay insertAdjacentHTML
+
+  // display card color function 
+    // pass in indexed cards (playerCardIndex, cpuCardIndex)
+    // check cardDeck[playerCardIndex].color
+    // set displayPlayerCard.className acordingly 
+
+  // player value GIF function
+  // if
+    // display GIF if player card value is >=3 (sweating GIF)
+      // pass in indexed cards value (playerCardIndex - cpuCardIndex)
+      //  check if player value 
+      // if >=3 display GIF for length of GIF then hide
+      // playerGifBox insertAdjacentHTM
+
+      // else if 
+
+    // display GIF if player card value is 3 <= 7 (Really... GIF)
+      // pass in indexed cards value (playerCardIndex - cpuCardIndex)
+      //  check if player value 
+      // if 3 <= 7 display GIF for length of GIF then hide
+      // playerGifBox insertAdjacentHTM
+
+      // else if 
+
+    // display GIF if player card value is 7 <= 10 (eh so so GIF)
+      // pass in indexed cards value (playerCardIndex - cpuCardIndex)
+      //  check if player value 
+      // if 7 <= 10 display GIF for length of GIF then hide
+      // playerGifBox insertAdjacentHTM
+
+      // else if 
+
+    // display GIF if player card value is 10 <= 13 (spongebob smile GIF)
+      // pass in indexed cards value (playerCardIndex - cpuCardIndex)
+      //  check if player value 
+      // if 10 <= 13 display GIF for length of GIF then hide
+      // playerGifBox insertAdjacentHTM
+
+      // else if 
+
+    // display GIF if player card value is ==14 (King GIF)
+      // pass in indexed cards value (playerCardIndex - cpuCardIndex)
+      //  check if player value 
+      // if ==14 display GIF for length of GIF then hide
+      // playerGifBox insertAdjacentHTM
+     
+  // display player won/lost string and GIF function
+      // pass in indexed cards value (playerCardIndex - cpuCardIndex)
+      // declare variable's playerCardDrawnName - playerCardDrawnSuit - cpuCardDrawnName - cpuCardDrawnSuit - playerCardDrawnValue - cpuCardDrawnValue
+      // check higher lower value if (playerCardIndex > cpuCardIndex) ext. to display player won/lost string and GIF
+      // playerGifBox insertAdjacentHTM
+}
+
+// function to get random card for both players
+
+function getDrawnCard() {
   var playerCardIndex = getRandomInt(0, 51);
   var cpuCardIndex = getRandomInt(0, 51);
 
@@ -39,23 +113,25 @@ function drawCard() {
 
   clearAllBox();
 
-  if (cardDeck[playerCardIndex].color == "Black") {
-    displayPlayerCard.className =
-      "col-2 border rounded bg-dark text-bg-dark fw-bold";
-    inputPlayerIndex();
-  } else {
-    displayPlayerCard.className = "col-2 border rounded bg-danger fw-bold";
-    inputPlayerIndex();
-  }
-
-  if (cardDeck[cpuCardIndex].color == "Black") {
-    displayCpuCard.className =
-      "col-2 border rounded bg-dark text-bg-dark fw-bold";
-    inputCpuIndex();
-  } else {
-    displayCpuCard.className = "col-2 border rounded bg-danger fw-bold";
-    inputCpuIndex();
-  }
+ 
+    if (cardDeck[playerCardIndex].color == "Black") {
+      displayPlayerCard.className =
+        "col-2 border rounded bg-dark text-bg-dark fw-bold";
+      inputPlayerIndex();
+    } else {
+      displayPlayerCard.className = "col-2 border rounded bg-danger fw-bold";
+      inputPlayerIndex();
+    }
+  
+    if (cardDeck[cpuCardIndex].color == "Black") {
+      displayCpuCard.className =
+        "col-2 border rounded bg-dark text-bg-dark fw-bold";
+      inputCpuIndex();
+    } else {
+      displayCpuCard.className = "col-2 border rounded bg-danger fw-bold";
+      inputCpuIndex();
+    }
+  
 
   function inputPlayerIndex() {
     // player card
@@ -95,7 +171,10 @@ function drawCard() {
 `
     );
 
-    displayCpuSuit.insertAdjacentHTML("beforeend", cpuCardDrawnSuitDisplay);
+    displayCpuSuit.insertAdjacentHTML(
+      "beforeend",
+      cpuCardDrawnSuitDisplay
+      );
 
     displayCpuCardBottomName.insertAdjacentHTML(
       "beforeend",
@@ -151,8 +230,6 @@ function drawCard() {
     );
   }
 
-  // console.log("-------SVG test-------")
-  // console.log(displaySuit)
 }
 
 function clearAllBox() {
@@ -167,4 +244,11 @@ function clearAllBox() {
   displayCpuSuit.innerHTML = "";
   displayPlayerCard.className = "";
   displayCpuCard.className = "";
+}
+
+function getRandomInt(min, max) {
+  // The maximum is inclusive and the minimum is inclusive
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
