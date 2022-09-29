@@ -15,84 +15,118 @@ var displayCpuSuit = document.querySelector("#cpu-suit-display");
 // see ./assets/card-generation.js
 var cardDeck = genCardDeck();
 
+// investigate using event listeners for on click and hide/show GIF
 
-// main function to display both cards and results
-// pass in the indexed cards from getDrawnCard()
-function displayDrawnCards(playerCardIndex, cpuCardIndex) {
-  // investigate using event listeners for on click and hide/show GIF
+// psuedo code
+// on click drawn card btn
+function playGame() {
+  console.log("I work!")
 
-  // display player card when draw card is clicked
+  // clear all boxs 
+  clearAllBox();
+  
+  // index random card 
+  var playerCardIndex = getRandomInt(0, 51);
+  var cpuCardIndex = getRandomInt(0, 51);
+  console.log(playerCardIndex)
+  console.log(cpuCardIndex)
+
+  // display player card 
+  // var playerCardDrawnNameDisplay = cardDeck[playerCardIndex].displayName;
+  // var playerCardDrawnSuitDisplay = cardDeck[playerCardIndex].displaySuit;
+  // var playerCardDrawnName = cardDeck[playerCardIndex].name;
+  // var playerCardDrawnSuit = cardDeck[playerCardIndex].suit;
+  var playerCard = cardDeck[playerCardIndex]
+
+  if (playerCard.color == "Black") {
+    displayPlayerCard.className =
+      "col-2 border rounded bg-dark text-bg-dark fw-bold";
+  } else {
+    displayPlayerCard.className = "col-2 border rounded bg-danger fw-bold";
+  }
+
+  displayPlayerCardTopName.insertAdjacentHTML("beforeend", `<p>${playerCard.displayName}</p>`);
+
+  displayPlayerSuit.insertAdjacentHTML("beforeend", playerCard.displaySuit);
+
+  displayPlayerBottomTopName.insertAdjacentHTML("beforeend", `<p>${playerCard.displayName}</p>`);
+
+  displayPlayerCardName.insertAdjacentHTML("beforeend",`<p>${playerCard.name} of ${playerCard.suit}</p>`);
 
   // then player GIF
 
   // then CPU draw GIF
 
-  // then CPU card and player won/lost 
+  // then CPU card 
 
-  // display player card name and suit function 
-    // pass in indexed cards (playerCardIndex, cpuCardIndex)
-    // declare playerCardDrawnNameDisplay - playerCardDrawnSuitDisplay
-    // displayPlayerCardTopName, displayPlayerCardBottomName and playerCardDrawnSuitDisplay insertAdjacentHTML
+  // player won/lost 
 
-  // display CPU drawing GIF
-    // cpuGifBox insertAdjacentHTM
-
-  // display cpu card name and suit function 
-    // pass in indexed cards (playerCardIndex, cpuCardIndex)
-    // declare cpuCardDrawnNameDisplay - cpuCardDrawnSuitDisplay
-    // displayCpuCardTopName, displayCpuCardBottomName and cpuCardDrawnSuitDisplay insertAdjacentHTML
-
-  // display card color function 
-    // pass in indexed cards (playerCardIndex, cpuCardIndex)
-    // check cardDeck[playerCardIndex].color
-    // set displayPlayerCard.className acordingly 
-
-  // player value GIF function
-  // if
-    // display GIF if player card value is >=3 (sweating GIF)
-      // pass in indexed cards value (playerCardIndex - cpuCardIndex)
-      //  check if player value 
-      // if >=3 display GIF for length of GIF then hide
-      // playerGifBox insertAdjacentHTM
-
-      // else if 
-
-    // display GIF if player card value is 3 <= 7 (Really... GIF)
-      // pass in indexed cards value (playerCardIndex - cpuCardIndex)
-      //  check if player value 
-      // if 3 <= 7 display GIF for length of GIF then hide
-      // playerGifBox insertAdjacentHTM
-
-      // else if 
-
-    // display GIF if player card value is 7 <= 10 (eh so so GIF)
-      // pass in indexed cards value (playerCardIndex - cpuCardIndex)
-      //  check if player value 
-      // if 7 <= 10 display GIF for length of GIF then hide
-      // playerGifBox insertAdjacentHTM
-
-      // else if 
-
-    // display GIF if player card value is 10 <= 13 (spongebob smile GIF)
-      // pass in indexed cards value (playerCardIndex - cpuCardIndex)
-      //  check if player value 
-      // if 10 <= 13 display GIF for length of GIF then hide
-      // playerGifBox insertAdjacentHTM
-
-      // else if 
-
-    // display GIF if player card value is ==14 (King GIF)
-      // pass in indexed cards value (playerCardIndex - cpuCardIndex)
-      //  check if player value 
-      // if ==14 display GIF for length of GIF then hide
-      // playerGifBox insertAdjacentHTM
-     
-  // display player won/lost string and GIF function
-      // pass in indexed cards value (playerCardIndex - cpuCardIndex)
-      // declare variable's playerCardDrawnName - playerCardDrawnSuit - cpuCardDrawnName - cpuCardDrawnSuit - playerCardDrawnValue - cpuCardDrawnValue
-      // check higher lower value if (playerCardIndex > cpuCardIndex) ext. to display player won/lost string and GIF
-      // playerGifBox insertAdjacentHTM
 }
+// function layout
+// display player card name and suit function 
+  // pass in indexed cards (playerCardIndex, cpuCardIndex)
+  // declare playerCardDrawnNameDisplay - playerCardDrawnSuitDisplay
+  // displayPlayerCardTopName, displayPlayerCardBottomName and playerCardDrawnSuitDisplay insertAdjacentHTML
+
+// display CPU drawing GIF function 
+  // cpuGifBox insertAdjacentHTM
+
+// display cpu card name and suit function 
+  // pass in indexed cards (playerCardIndex, cpuCardIndex)
+  // declare cpuCardDrawnNameDisplay - cpuCardDrawnSuitDisplay
+  // displayCpuCardTopName, displayCpuCardBottomName and cpuCardDrawnSuitDisplay insertAdjacentHTML
+
+// display card color function 
+  // pass in indexed cards (playerCardIndex, cpuCardIndex)
+  // check cardDeck[playerCardIndex].color
+  // set displayPlayerCard.className acordingly 
+
+// player value GIF function
+// if
+  // display GIF if player card value is >=3 (sweating GIF)
+    // pass in indexed cards value (playerCardIndex - cpuCardIndex)
+    //  check if player value 
+    // if >=3 display GIF for length of GIF then hide
+    // playerGifBox insertAdjacentHTM
+
+    // else if 
+
+  // display GIF if player card value is 3 <= 7 (Really... GIF)
+    // pass in indexed cards value (playerCardIndex - cpuCardIndex)
+    //  check if player value 
+    // if 3 <= 7 display GIF for length of GIF then hide
+    // playerGifBox insertAdjacentHTM
+
+    // else if 
+
+  // display GIF if player card value is 7 <= 10 (eh so so GIF)
+    // pass in indexed cards value (playerCardIndex - cpuCardIndex)
+    //  check if player value 
+    // if 7 <= 10 display GIF for length of GIF then hide
+    // playerGifBox insertAdjacentHTM
+
+    // else if 
+
+  // display GIF if player card value is 10 <= 13 (spongebob smile GIF)
+    // pass in indexed cards value (playerCardIndex - cpuCardIndex)
+    //  check if player value 
+    // if 10 <= 13 display GIF for length of GIF then hide
+    // playerGifBox insertAdjacentHTM
+
+    // else if 
+
+  // display GIF if player card value is ==14 (King GIF)
+    // pass in indexed cards value (playerCardIndex - cpuCardIndex)
+    //  check if player value 
+    // if ==14 display GIF for length of GIF then hide
+    // playerGifBox insertAdjacentHTM
+    
+// display player won/lost string and GIF function
+    // pass in indexed cards value (playerCardIndex - cpuCardIndex)
+    // declare variable's playerCardDrawnName - playerCardDrawnSuit - cpuCardDrawnName - cpuCardDrawnSuit - playerCardDrawnValue - cpuCardDrawnValue
+    // check higher lower value if (playerCardIndex > cpuCardIndex) ext. to display player won/lost string and GIF
+    // playerGifBox insertAdjacentHTM
+
 
 // function to get random card for both players
 
@@ -113,7 +147,7 @@ function getDrawnCard() {
 
   clearAllBox();
 
- 
+
     if (cardDeck[playerCardIndex].color == "Black") {
       displayPlayerCard.className =
         "col-2 border rounded bg-dark text-bg-dark fw-bold";
@@ -122,7 +156,7 @@ function getDrawnCard() {
       displayPlayerCard.className = "col-2 border rounded bg-danger fw-bold";
       inputPlayerIndex();
     }
-  
+
     if (cardDeck[cpuCardIndex].color == "Black") {
       displayCpuCard.className =
         "col-2 border rounded bg-dark text-bg-dark fw-bold";
@@ -131,7 +165,7 @@ function getDrawnCard() {
       displayCpuCard.className = "col-2 border rounded bg-danger fw-bold";
       inputCpuIndex();
     }
-  
+
 
   function inputPlayerIndex() {
     // player card
