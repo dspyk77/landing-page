@@ -40,13 +40,24 @@ function playGame() {
   // then player GIF
   displayPlayerGifFunc(playerCard)
 
-  // then CPU draw GIF
-  
-  
+  // cpu draw gif
+  setTimeout(displayCpuDrawGifFunc, 2000)
 
   // then CPU card 
-  cpuCardDisplayCycle(cpuCard)
-  
+  setTimeout(clearCpuGifBox, 8000)
+  setTimeout(cpuCardDisplayCycle, 8200, cpuCard)
+
+  // then cpu Gif
+  if (playerCard.value < cpuCard.value) {
+    cpuGifBox.insertAdjacentHTML(
+      "beforeend", `<iframe src="https://giphy.com/embed/tczJoRU7XwBS8" width="480" height="360"></iframe>`
+    );
+  } else {
+    cpuGifBox.insertAdjacentHTML(
+      "beforeend", `<iframe src="https://giphy.com/embed/l46CwEYnbFtFfjZNS" width="480" height="472"></iframe>`
+    );
+  }
+
   // player won/lost 
 
 }
@@ -75,8 +86,8 @@ function playGame() {
 
 function cpuCardDisplayCycle(cpuCard) {
   
-  setTimeout(clearCpuGifBox, 8000)
   
+
   if (cpuCard.color == "Black") {
     displayCpuCard.className =
       "col-2 border rounded bg-dark text-bg-dark fw-bold";
@@ -115,7 +126,7 @@ function playerCardDisplayCycle(playerCard) {
 
   displayPlayerCardName.insertAdjacentHTML("beforeend",`<p>${playerCard.name} of ${playerCard.suit}</p>`);
 
-  setTimeout(displayCpuDrawGifFunc, 2000)
+  
 
    // var playerCard = cardDeck[playerCardIndex]
 
@@ -277,18 +288,7 @@ function getDrawnCard() {
   `
     );
   }
-
-  function displaySweatingGif() {
-    playerGifBox.insertAdjacentHTML(
-      "beforeend",
-      `
-      <iframe src="https://giphy.com/embed/32mC2kXYWCsg0" width="480" height="270"></iframe>
-    `
-    );
-  }
-
-  // setTimeout(hideGif, 2800);
-  // setTimeout(randomCard, 2900);
+  
   if (playerCardDrawnValue > cpuCardDrawnValue) {
     wonLostMessage.insertAdjacentHTML(
       "beforeend",
