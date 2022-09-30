@@ -40,27 +40,29 @@ function playGame() {
   displayPlayerCardFunc(playerCard)
 
   // then player GIF
-  if (playerCard.value <= 3) {
-    playerGifBox.insertAdjacentHTML(
-      "beforeend", `<iframe src="https://giphy.com/embed/32mC2kXYWCsg0" width="480" height="270"></iframe>`
-    );
-  } else if (playerCard.value >= 3 && playerCard.value <= 7) {
-    playerGifBox.insertAdjacentHTML(
-      "beforeend", `<iframe src="https://giphy.com/embed/5fBH6zf7l8bxukYh74Q" width="480" height="269"></iframe>`
-    );
-  } else if (playerCard.value >= 7 && playerCard.value <= 10) {
-    playerGifBox.insertAdjacentHTML(
-      "beforeend", `<iframe src="https://giphy.com/embed/WG3RPgRpOtBt0rzZPW" width="480" height="343"></iframe>`
-    );
-  } else if (playerCard.value >= 10 && playerCard.value <= 13) {
-    playerGifBox.insertAdjacentHTML(
-      "beforeend", `<iframe src="https://giphy.com/embed/blFCQZx7vSzKM" width="480" height="360"></iframe>`
-    );
-  } else if (playerCard.value == 14) {
-    playerGifBox.insertAdjacentHTML(
-      "beforeend", `<iframe src="https://giphy.com/embed/LfPkNKuEjr9Ju" width="480" height="360"></iframe>`
-    );
-  } 
+  displayPlayerGifFunc(playerCard)
+
+  // if (playerCard.value <= 3) {
+  //   playerGifBox.insertAdjacentHTML(
+  //     "beforeend", `<iframe src="https://giphy.com/embed/32mC2kXYWCsg0" width="480" height="270"></iframe>`
+  //   );
+  // } else if (playerCard.value >= 3 && playerCard.value <= 7) {
+  //   playerGifBox.insertAdjacentHTML(
+  //     "beforeend", `<iframe src="https://giphy.com/embed/5fBH6zf7l8bxukYh74Q" width="480" height="269"></iframe>`
+  //   );
+  // } else if (playerCard.value >= 7 && playerCard.value <= 10) {
+  //   playerGifBox.insertAdjacentHTML(
+  //     "beforeend", `<iframe src="https://giphy.com/embed/WG3RPgRpOtBt0rzZPW" width="480" height="343"></iframe>`
+  //   );
+  // } else if (playerCard.value >= 10 && playerCard.value <= 13) {
+  //   playerGifBox.insertAdjacentHTML(
+  //     "beforeend", `<iframe src="https://giphy.com/embed/blFCQZx7vSzKM" width="480" height="360"></iframe>`
+  //   );
+  // } else if (playerCard.value == 14) {
+  //   playerGifBox.insertAdjacentHTML(
+  //     "beforeend", `<iframe src="https://giphy.com/embed/LfPkNKuEjr9Ju" width="480" height="360"></iframe>`
+  //   );
+  // } 
 
   // then CPU draw GIF
 
@@ -132,7 +134,6 @@ function playGame() {
 
 
 function displayPlayerCardFunc(playerCard) {
-
   if (playerCard.color == "Black") {
     displayPlayerCard.className =
       "col-2 border rounded bg-dark text-bg-dark fw-bold";
@@ -167,6 +168,29 @@ function displayPlayerCardFunc(playerCard) {
 
 }
 
+function displayPlayerGifFunc(playerCard){
+  if (playerCard.value <= 3) {
+    playerGifBox.insertAdjacentHTML(
+      "beforeend", `<iframe src="https://giphy.com/embed/32mC2kXYWCsg0" width="480" height="270"></iframe>`
+    );
+  } else if (playerCard.value >= 3 && playerCard.value <= 7) {
+    playerGifBox.insertAdjacentHTML(
+      "beforeend", `<iframe src="https://giphy.com/embed/5fBH6zf7l8bxukYh74Q" width="480" height="269"></iframe>`
+    );
+  } else if (playerCard.value >= 7 && playerCard.value <= 10) {
+    playerGifBox.insertAdjacentHTML(
+      "beforeend", `<iframe src="https://giphy.com/embed/WG3RPgRpOtBt0rzZPW" width="480" height="343"></iframe>`
+    );
+  } else if (playerCard.value >= 10 && playerCard.value <= 13) {
+    playerGifBox.insertAdjacentHTML(
+      "beforeend", `<iframe src="https://giphy.com/embed/blFCQZx7vSzKM" width="480" height="360"></iframe>`
+    );
+  } else if (playerCard.value == 14) {
+    playerGifBox.insertAdjacentHTML(
+      "beforeend", `<iframe src="https://giphy.com/embed/LfPkNKuEjr9Ju" width="480" height="360"></iframe>`
+    );
+  } 
+}
 
 // function to get random card for both players
 function getDrawnCard() {
