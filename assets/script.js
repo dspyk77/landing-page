@@ -48,18 +48,10 @@ function playGame() {
   setTimeout(cpuCardDisplayCycle, 8200, cpuCard)
 
   // then cpu Gif
-  if (playerCard.value < cpuCard.value) {
-    cpuGifBox.insertAdjacentHTML(
-      "beforeend", `<iframe src="https://giphy.com/embed/tczJoRU7XwBS8" width="480" height="360"></iframe>`
-    );
-  } else {
-    cpuGifBox.insertAdjacentHTML(
-      "beforeend", `<iframe src="https://giphy.com/embed/l46CwEYnbFtFfjZNS" width="480" height="472"></iframe>`
-    );
-  }
-
+  setTimeout(displayCpuGifFunc, 8400, playerCard, cpuCard)
+  
   // player won/lost 
-
+  setTimeout(displayResults, 10400, playerCard, cpuCard)
 }
 
 
@@ -84,9 +76,51 @@ function playGame() {
     // check higher lower value if (playerCardIndex > cpuCardIndex) ext. to display player won/lost string and GIF
     // playerGifBox insertAdjacentHTM
 
+
+function displayResults(playerCard, cpuCard) {
+  if (playerCard.value > cpuCard.value) {
+    wonLostMessage.insertAdjacentHTML(
+      "beforeend",
+      `
+      <p>${playerCard.name} of ${playerCard.suit} is higher than ${cpuCard.name} of ${cpuCard.suit}, you won!</p>
+      <div style="width:480px"><iframe allow="fullscreen" frameBorder="0" height="270" src="https://giphy.com/embed/G96zgIcQn1L2xpmdxi/video" width="480"></iframe></div>
+    `
+    );
+  } else if (playerCard.value < cpuCard.value) {
+    wonLostMessage.insertAdjacentHTML(
+      "beforeend",
+      `
+      <p>${playerCard.name} of ${playerCard.suit} is lower than ${cpuCard.name} of ${cpuCard.suit}, tough luck!!</p>
+      <iframe src="https://giphy.com/embed/d8SRR4aDUINuU" width="480" height="480">
+    `
+    );
+  } else {
+    wonLostMessage.insertAdjacentHTML(
+      "beforeend",
+      `
+      <p>${playerCard.name} of ${playerCard.suit} has the same value as ${cpuCard.name} of ${cpuCard.suit}</p><br>
+      <p>It's a Draw! You're saying to yourself, "I know thats kind of the point, we're drawing cards" I mean your cards are the same.. 
+      well the value is the same, not neccesaraly the same exact card, the suit might be different... whatever you get it just draw again</p>
+      <iframe src="https://giphy.com/embed/VPevIZhmlNOms" width="384" height="480"></iframe>
+    `
+    );
+  }
+  wonLostMessage.scrollIntoView()
+}
+
+function displayCpuGifFunc(playerCard, cpuCard) {
+  if (playerCard.value < cpuCard.value) {
+    cpuGifBox.insertAdjacentHTML(
+      "beforeend", `<iframe src="https://giphy.com/embed/tczJoRU7XwBS8" width="480" height="360"></iframe>`
+    );
+  } else {
+    cpuGifBox.insertAdjacentHTML(
+      "beforeend", `<iframe src="https://giphy.com/embed/l46CwEYnbFtFfjZNS" width="480" height="472"></iframe>`
+    );
+  }
+}
+
 function cpuCardDisplayCycle(cpuCard) {
-  
-  
 
   if (cpuCard.color == "Black") {
     displayCpuCard.className =
@@ -170,6 +204,7 @@ function displayPlayerGifFunc(playerCard){
     );
   } 
 
+  wonLostMessage.scrollIntoView()
    // if (playerCard.value <= 3) {
   //   playerGifBox.insertAdjacentHTML(
   //     "beforeend", `<iframe src="https://giphy.com/embed/32mC2kXYWCsg0" width="480" height="270"></iframe>`
@@ -332,6 +367,7 @@ function clearAllBox() {
   displayPlayerCard.className = "";
   displayCpuCard.className = "";
   playerGifBox.innerHTML = "";
+  cpuGifBox.innerHTML = "";
 }
 
 function clearCpuGifBox () {
