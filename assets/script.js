@@ -36,24 +36,24 @@ function playGame() {
   // var playerCardDrawnSuitDisplay = cardDeck[playerCardIndex].displaySuit;
   // var playerCardDrawnName = cardDeck[playerCardIndex].name;
   // var playerCardDrawnSuit = cardDeck[playerCardIndex].suit;
+  displayPlayerCardFunc(playerCardIndex)
 
-  // extract to seperate function
-  var playerCard = cardDeck[playerCardIndex]
+  // var playerCard = cardDeck[playerCardIndex]
 
-  if (playerCard.color == "Black") {
-    displayPlayerCard.className =
-      "col-2 border rounded bg-dark text-bg-dark fw-bold";
-  } else {
-    displayPlayerCard.className = "col-2 border rounded bg-danger fw-bold";
-  }
+  // if (playerCard.color == "Black") {
+  //   displayPlayerCard.className =
+  //     "col-2 border rounded bg-dark text-bg-dark fw-bold";
+  // } else {
+  //   displayPlayerCard.className = "col-2 border rounded bg-danger fw-bold";
+  // }
 
-  displayPlayerCardTopName.insertAdjacentHTML("beforeend", `<p>${playerCard.displayName}</p>`);
+  // displayPlayerCardTopName.insertAdjacentHTML("beforeend", `<p>${playerCard.displayName}</p>`);
 
-  displayPlayerSuit.insertAdjacentHTML("beforeend", playerCard.displaySuit);
+  // displayPlayerSuit.insertAdjacentHTML("beforeend", playerCard.displaySuit);
 
-  displayPlayerBottomTopName.insertAdjacentHTML("beforeend", `<p>${playerCard.displayName}</p>`);
+  // displayPlayerBottomTopName.insertAdjacentHTML("beforeend", `<p>${playerCard.displayName}</p>`);
 
-  displayPlayerCardName.insertAdjacentHTML("beforeend",`<p>${playerCard.name} of ${playerCard.suit}</p>`);
+  // displayPlayerCardName.insertAdjacentHTML("beforeend",`<p>${playerCard.name} of ${playerCard.suit}</p>`);
 
   // then player GIF
 
@@ -130,8 +130,27 @@ function playGame() {
     // playerGifBox insertAdjacentHTM
 
 
-// function to get random card for both players
+function displayPlayerCardFunc(playerCardIndex) {
+  var playerCard = cardDeck[playerCardIndex]
 
+  if (playerCard.color == "Black") {
+    displayPlayerCard.className =
+      "col-2 border rounded bg-dark text-bg-dark fw-bold";
+  } else {
+    displayPlayerCard.className = "col-2 border rounded bg-danger fw-bold";
+  }
+
+  displayPlayerCardTopName.insertAdjacentHTML("beforeend", `<p>${playerCard.displayName}</p>`);
+
+  displayPlayerSuit.insertAdjacentHTML("beforeend", playerCard.displaySuit);
+
+  displayPlayerBottomTopName.insertAdjacentHTML("beforeend", `<p>${playerCard.displayName}</p>`);
+
+  displayPlayerCardName.insertAdjacentHTML("beforeend",`<p>${playerCard.name} of ${playerCard.suit}</p>`);
+}
+
+
+// function to get random card for both players
 function getDrawnCard() {
   var playerCardIndex = getRandomInt(0, 51);
   var cpuCardIndex = getRandomInt(0, 51);
