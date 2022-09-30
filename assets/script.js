@@ -20,7 +20,6 @@ var cardDeck = genCardDeck();
 // psuedo code
 // on click drawn card btn
 function playGame() {
-  console.log("I work!")
 
   // clear all boxs 
   clearAllBox();
@@ -29,8 +28,6 @@ function playGame() {
   var playerCardIndex = getRandomInt(0, 51);
   var cpuCardIndex = getRandomInt(0, 51);
   var playerCard =  cardDeck[playerCardIndex]
-  console.log(playerCardIndex)
-  console.log(cpuCardIndex)
 
   // display player card 
   // var playerCardDrawnNameDisplay = cardDeck[playerCardIndex].displayName;
@@ -42,32 +39,11 @@ function playGame() {
   // then player GIF
   displayPlayerGifFunc(playerCard)
 
-  // if (playerCard.value <= 3) {
-  //   playerGifBox.insertAdjacentHTML(
-  //     "beforeend", `<iframe src="https://giphy.com/embed/32mC2kXYWCsg0" width="480" height="270"></iframe>`
-  //   );
-  // } else if (playerCard.value >= 3 && playerCard.value <= 7) {
-  //   playerGifBox.insertAdjacentHTML(
-  //     "beforeend", `<iframe src="https://giphy.com/embed/5fBH6zf7l8bxukYh74Q" width="480" height="269"></iframe>`
-  //   );
-  // } else if (playerCard.value >= 7 && playerCard.value <= 10) {
-  //   playerGifBox.insertAdjacentHTML(
-  //     "beforeend", `<iframe src="https://giphy.com/embed/WG3RPgRpOtBt0rzZPW" width="480" height="343"></iframe>`
-  //   );
-  // } else if (playerCard.value >= 10 && playerCard.value <= 13) {
-  //   playerGifBox.insertAdjacentHTML(
-  //     "beforeend", `<iframe src="https://giphy.com/embed/blFCQZx7vSzKM" width="480" height="360"></iframe>`
-  //   );
-  // } else if (playerCard.value == 14) {
-  //   playerGifBox.insertAdjacentHTML(
-  //     "beforeend", `<iframe src="https://giphy.com/embed/LfPkNKuEjr9Ju" width="480" height="360"></iframe>`
-  //   );
-  // } 
-
   // then CPU draw GIF
-
+  setTimeout(displayCpuDrawGifFunc, 2000)
+  setTimeout(clearCpuGifBox, 8000)
   // then CPU card 
-
+  
   // player won/lost 
 
 }
@@ -86,45 +62,7 @@ function playGame() {
   // check cardDeck[playerCardIndex].color
   // set displayPlayerCard.className acordingly 
 
-// player value GIF function
-// if
-  // display GIF if player card value is >=3 (sweating GIF)
-    // pass in indexed cards value (playerCardIndex - cpuCardIndex)
-    //  check if player value 
-    // if >=3 display GIF for length of GIF then hide
-    // playerGifBox insertAdjacentHTM
 
-    // else if 
-
-  // display GIF if player card value is 3 <= 7 (Really... GIF)
-    // pass in indexed cards value (playerCardIndex - cpuCardIndex)
-    //  check if player value 
-    // if 3 <= 7 display GIF for length of GIF then hide
-    // playerGifBox insertAdjacentHTM
-
-    // else if 
-
-  // display GIF if player card value is 7 <= 10 (eh so so GIF)
-    // pass in indexed cards value (playerCardIndex - cpuCardIndex)
-    //  check if player value 
-    // if 7 <= 10 display GIF for length of GIF then hide
-    // playerGifBox insertAdjacentHTM
-
-    // else if 
-
-  // display GIF if player card value is 10 <= 13 (spongebob smile GIF)
-    // pass in indexed cards value (playerCardIndex - cpuCardIndex)
-    //  check if player value 
-    // if 10 <= 13 display GIF for length of GIF then hide
-    // playerGifBox insertAdjacentHTM
-
-    // else if 
-
-  // display GIF if player card value is ==14 (King GIF)
-    // pass in indexed cards value (playerCardIndex - cpuCardIndex)
-    //  check if player value 
-    // if ==14 display GIF for length of GIF then hide
-    // playerGifBox insertAdjacentHTM
     
 // display player won/lost string and GIF function
     // pass in indexed cards value (playerCardIndex - cpuCardIndex)
@@ -132,6 +70,11 @@ function playGame() {
     // check higher lower value if (playerCardIndex > cpuCardIndex) ext. to display player won/lost string and GIF
     // playerGifBox insertAdjacentHTM
 
+function displayCpuDrawGifFunc() {
+  cpuGifBox.insertAdjacentHTML(
+    "beforeend", `<iframe src="https://giphy.com/embed/Jk8F8BanWi3Is" width="480" height="480"></iframe>`
+  );
+}
 
 function displayPlayerCardFunc(playerCard) {
   if (playerCard.color == "Black") {
@@ -190,6 +133,28 @@ function displayPlayerGifFunc(playerCard){
       "beforeend", `<iframe src="https://giphy.com/embed/LfPkNKuEjr9Ju" width="480" height="360"></iframe>`
     );
   } 
+
+   // if (playerCard.value <= 3) {
+  //   playerGifBox.insertAdjacentHTML(
+  //     "beforeend", `<iframe src="https://giphy.com/embed/32mC2kXYWCsg0" width="480" height="270"></iframe>`
+  //   );
+  // } else if (playerCard.value >= 3 && playerCard.value <= 7) {
+  //   playerGifBox.insertAdjacentHTML(
+  //     "beforeend", `<iframe src="https://giphy.com/embed/5fBH6zf7l8bxukYh74Q" width="480" height="269"></iframe>`
+  //   );
+  // } else if (playerCard.value >= 7 && playerCard.value <= 10) {
+  //   playerGifBox.insertAdjacentHTML(
+  //     "beforeend", `<iframe src="https://giphy.com/embed/WG3RPgRpOtBt0rzZPW" width="480" height="343"></iframe>`
+  //   );
+  // } else if (playerCard.value >= 10 && playerCard.value <= 13) {
+  //   playerGifBox.insertAdjacentHTML(
+  //     "beforeend", `<iframe src="https://giphy.com/embed/blFCQZx7vSzKM" width="480" height="360"></iframe>`
+  //   );
+  // } else if (playerCard.value == 14) {
+  //   playerGifBox.insertAdjacentHTML(
+  //     "beforeend", `<iframe src="https://giphy.com/embed/LfPkNKuEjr9Ju" width="480" height="360"></iframe>`
+  //   );
+  // }
 }
 
 // function to get random card for both players
@@ -342,6 +307,10 @@ function clearAllBox() {
   displayPlayerCard.className = "";
   displayCpuCard.className = "";
   playerGifBox.innerHTML = "";
+}
+
+function clearCpuGifBox () {
+  cpuGifBox.innerHTML = "";
 }
 
 function getRandomInt(min, max) {
