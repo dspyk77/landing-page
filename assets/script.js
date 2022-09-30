@@ -28,6 +28,7 @@ function playGame() {
   // index random card 
   var playerCardIndex = getRandomInt(0, 51);
   var cpuCardIndex = getRandomInt(0, 51);
+  var playerCard =  cardDeck[playerCardIndex]
   console.log(playerCardIndex)
   console.log(cpuCardIndex)
 
@@ -36,26 +37,30 @@ function playGame() {
   // var playerCardDrawnSuitDisplay = cardDeck[playerCardIndex].displaySuit;
   // var playerCardDrawnName = cardDeck[playerCardIndex].name;
   // var playerCardDrawnSuit = cardDeck[playerCardIndex].suit;
-  displayPlayerCardFunc(playerCardIndex)
-
-  // var playerCard = cardDeck[playerCardIndex]
-
-  // if (playerCard.color == "Black") {
-  //   displayPlayerCard.className =
-  //     "col-2 border rounded bg-dark text-bg-dark fw-bold";
-  // } else {
-  //   displayPlayerCard.className = "col-2 border rounded bg-danger fw-bold";
-  // }
-
-  // displayPlayerCardTopName.insertAdjacentHTML("beforeend", `<p>${playerCard.displayName}</p>`);
-
-  // displayPlayerSuit.insertAdjacentHTML("beforeend", playerCard.displaySuit);
-
-  // displayPlayerBottomTopName.insertAdjacentHTML("beforeend", `<p>${playerCard.displayName}</p>`);
-
-  // displayPlayerCardName.insertAdjacentHTML("beforeend",`<p>${playerCard.name} of ${playerCard.suit}</p>`);
+  displayPlayerCardFunc(playerCard)
 
   // then player GIF
+  if (playerCard.value <= 3) {
+    playerGifBox.insertAdjacentHTML(
+      "beforeend", `<iframe src="https://giphy.com/embed/32mC2kXYWCsg0" width="480" height="270"></iframe>`
+    );
+  } else if (playerCard.value >= 3 && playerCard.value <= 7) {
+    playerGifBox.insertAdjacentHTML(
+      "beforeend", `<iframe src="https://giphy.com/embed/5fBH6zf7l8bxukYh74Q" width="480" height="269"></iframe>`
+    );
+  } else if (playerCard.value >= 7 && playerCard.value <= 10) {
+    playerGifBox.insertAdjacentHTML(
+      "beforeend", `<iframe src="https://giphy.com/embed/WG3RPgRpOtBt0rzZPW" width="480" height="343"></iframe>`
+    );
+  } else if (playerCard.value >= 10 && playerCard.value <= 13) {
+    playerGifBox.insertAdjacentHTML(
+      "beforeend", `<iframe src="https://giphy.com/embed/blFCQZx7vSzKM" width="480" height="360"></iframe>`
+    );
+  } else if (playerCard.value == 14) {
+    playerGifBox.insertAdjacentHTML(
+      "beforeend", `<iframe src="https://giphy.com/embed/LfPkNKuEjr9Ju" width="480" height="360"></iframe>`
+    );
+  } 
 
   // then CPU draw GIF
 
@@ -64,11 +69,7 @@ function playGame() {
   // player won/lost 
 
 }
-// function layout
-// display player card name and suit function 
-  // pass in indexed cards (playerCardIndex, cpuCardIndex)
-  // declare playerCardDrawnNameDisplay - playerCardDrawnSuitDisplay
-  // displayPlayerCardTopName, displayPlayerCardBottomName and playerCardDrawnSuitDisplay insertAdjacentHTML
+
 
 // display CPU drawing GIF function 
   // cpuGifBox insertAdjacentHTM
@@ -130,8 +131,7 @@ function playGame() {
     // playerGifBox insertAdjacentHTM
 
 
-function displayPlayerCardFunc(playerCardIndex) {
-  var playerCard = cardDeck[playerCardIndex]
+function displayPlayerCardFunc(playerCard) {
 
   if (playerCard.color == "Black") {
     displayPlayerCard.className =
@@ -147,6 +147,24 @@ function displayPlayerCardFunc(playerCardIndex) {
   displayPlayerBottomTopName.insertAdjacentHTML("beforeend", `<p>${playerCard.displayName}</p>`);
 
   displayPlayerCardName.insertAdjacentHTML("beforeend",`<p>${playerCard.name} of ${playerCard.suit}</p>`);
+
+   // var playerCard = cardDeck[playerCardIndex]
+
+  // if (playerCard.color == "Black") {
+  //   displayPlayerCard.className =
+  //     "col-2 border rounded bg-dark text-bg-dark fw-bold";
+  // } else {
+  //   displayPlayerCard.className = "col-2 border rounded bg-danger fw-bold";
+  // }
+
+  // displayPlayerCardTopName.insertAdjacentHTML("beforeend", `<p>${playerCard.displayName}</p>`);
+
+  // displayPlayerSuit.insertAdjacentHTML("beforeend", playerCard.displaySuit);
+
+  // displayPlayerBottomTopName.insertAdjacentHTML("beforeend", `<p>${playerCard.displayName}</p>`);
+
+  // displayPlayerCardName.insertAdjacentHTML("beforeend",`<p>${playerCard.name} of ${playerCard.suit}</p>`);
+
 }
 
 
@@ -299,6 +317,7 @@ function clearAllBox() {
   displayCpuSuit.innerHTML = "";
   displayPlayerCard.className = "";
   displayCpuCard.className = "";
+  playerGifBox.innerHTML = "";
 }
 
 function getRandomInt(min, max) {
