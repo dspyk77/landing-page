@@ -7,7 +7,7 @@ var displayPlayerCardName = document.querySelector("#display-player-card-name");
 var displayCpuCardName = document.querySelector("#display-cpu-card-name");
 var wonLostMessage = document.querySelector("#won-lost-msg");
 var displayPlayerCardTopName = document.querySelector("#player-card-top-name");
-var displayPlayerBottomTopName = document.querySelector("#player-card-bottom-name");
+var displayPlayerCardBottomName = document.querySelector("#player-card-bottom-name");
 var displayCpuCardTopName = document.querySelector("#cpu-card-top-name");
 var displayCpuCardBottomName = document.querySelector("#cpu-card-bottom-name");
 var displayPlayerSuit = document.querySelector("#player-suit-display");
@@ -28,21 +28,24 @@ function playGame() {
   var playerCardIndex = getRandomInt(0, 51);
   var cpuCardIndex = getRandomInt(0, 51);
   var playerCard =  cardDeck[playerCardIndex]
+  var cpuCard =  cardDeck[cpuCardIndex]
 
   // display player card 
   // var playerCardDrawnNameDisplay = cardDeck[playerCardIndex].displayName;
   // var playerCardDrawnSuitDisplay = cardDeck[playerCardIndex].displaySuit;
   // var playerCardDrawnName = cardDeck[playerCardIndex].name;
   // var playerCardDrawnSuit = cardDeck[playerCardIndex].suit;
-  displayPlayerCardFunc(playerCard)
+  playerCardDisplayCycle(playerCard)
 
   // then player GIF
   displayPlayerGifFunc(playerCard)
 
   // then CPU draw GIF
-  setTimeout(displayCpuDrawGifFunc, 2000)
-  setTimeout(clearCpuGifBox, 8000)
+  
+  
+
   // then CPU card 
+  cpuCardDisplayCycle(cpuCard)
   
   // player won/lost 
 
@@ -70,13 +73,33 @@ function playGame() {
     // check higher lower value if (playerCardIndex > cpuCardIndex) ext. to display player won/lost string and GIF
     // playerGifBox insertAdjacentHTM
 
+function cpuCardDisplayCycle(cpuCard) {
+  
+  setTimeout(clearCpuGifBox, 8000)
+  
+  if (cpuCard.color == "Black") {
+    displayCpuCard.className =
+      "col-2 border rounded bg-dark text-bg-dark fw-bold";
+  } else {
+    displayCpuCard.className = "col-2 border rounded bg-danger fw-bold";
+  }
+
+  displayCpuCardTopName.insertAdjacentHTML("beforeend", `<p>${cpuCard.displayName}</p>`);
+
+  displayCpuSuit.insertAdjacentHTML("beforeend", cpuCard.displaySuit);
+
+  displayCpuCardBottomName.insertAdjacentHTML("beforeend", `<p>${cpuCard.displayName}</p>`);
+
+  displayCpuCardName.insertAdjacentHTML("beforeend",`<p>${cpuCard.name} of ${cpuCard.suit}</p>`);
+}
+
 function displayCpuDrawGifFunc() {
   cpuGifBox.insertAdjacentHTML(
     "beforeend", `<iframe src="https://giphy.com/embed/Jk8F8BanWi3Is" width="480" height="480"></iframe>`
   );
 }
 
-function displayPlayerCardFunc(playerCard) {
+function playerCardDisplayCycle(playerCard) {
   if (playerCard.color == "Black") {
     displayPlayerCard.className =
       "col-2 border rounded bg-dark text-bg-dark fw-bold";
@@ -88,9 +111,11 @@ function displayPlayerCardFunc(playerCard) {
 
   displayPlayerSuit.insertAdjacentHTML("beforeend", playerCard.displaySuit);
 
-  displayPlayerBottomTopName.insertAdjacentHTML("beforeend", `<p>${playerCard.displayName}</p>`);
+  displayPlayerCardBottomName.insertAdjacentHTML("beforeend", `<p>${playerCard.displayName}</p>`);
 
   displayPlayerCardName.insertAdjacentHTML("beforeend",`<p>${playerCard.name} of ${playerCard.suit}</p>`);
+
+  setTimeout(displayCpuDrawGifFunc, 2000)
 
    // var playerCard = cardDeck[playerCardIndex]
 
@@ -297,7 +322,7 @@ function getDrawnCard() {
 function clearAllBox() {
   wonLostMessage.innerHTML = "";
   displayPlayerCardTopName.innerHTML = "";
-  displayPlayerBottomTopName.innerHTML = "";
+  displayPlayerCardBottomName.innerHTML = "";
   displayCpuCardTopName.innerHTML = "";
   displayCpuCardBottomName.innerHTML = "";
   displayPlayerCardName.innerHTML = "";
