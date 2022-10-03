@@ -36,10 +36,9 @@ function playGame() {
   // var playerCardDrawnName = cardDeck[playerCardIndex].name;
   // var playerCardDrawnSuit = cardDeck[playerCardIndex].suit;
   playerCardDisplayCycle(playerCard)
-
+  
   // then player GIF
   displayPlayerGifFunc(playerCard)
-
   // cpu draw gif
   setTimeout(displayCpuDrawGifFunc, 2000)
 
@@ -79,31 +78,22 @@ function playGame() {
 
 function displayResults(playerCard, cpuCard) {
   if (playerCard.value > cpuCard.value) {
-    wonLostMessage.insertAdjacentHTML(
-      "beforeend",
-      `
+    wonLostMessage.insertAdjacentHTML("beforeend",`
       <p>${playerCard.name} of ${playerCard.suit} is higher than ${cpuCard.name} of ${cpuCard.suit}, you won!</p>
-      <div style="width:480px"><img allow="fullscreen" frameBorder="0" height="270" src="https://i.giphy.com/G96zgIcQn1L2xpmdxi.gif" width="480"></img></div>
-    `
-    );
+      <img src="./assets/gifs/the_office_party.gif">
+    `);
   } else if (playerCard.value < cpuCard.value) {
-    wonLostMessage.insertAdjacentHTML(
-      "beforeend",
-      `
+    wonLostMessage.insertAdjacentHTML("beforeend",`
       <p>${playerCard.name} of ${playerCard.suit} is lower than ${cpuCard.name} of ${cpuCard.suit}, tough luck!!</p>
-      <img src="./assets/nooo-gif.webp">
-    `
-    );
+      <img src="./assets/gifs/the_office_no.webp">
+    `);
   } else {
-    wonLostMessage.insertAdjacentHTML(
-      "beforeend",
-      `
+    wonLostMessage.insertAdjacentHTML("beforeend",`
       <p>${playerCard.name} of ${playerCard.suit} has the same value as ${cpuCard.name} of ${cpuCard.suit}</p><br>
       <p>It's a Draw! You're saying to yourself, "I know thats kind of the point, we're drawing cards" I mean your cards are the same.. 
       well the value is the same, not neccesaraly the same exact card, the suit might be different... whatever you get it just draw again</p>
-      <iframe src="https://giphy.com/embed/VPevIZhmlNOms" width="384" height="480"></iframe>
-    `
-    );
+      <img src="./assets/gifs/tie-gif.webp">
+    `);
   }
   wonLostMessage.scrollIntoView()
 }
@@ -111,11 +101,11 @@ function displayResults(playerCard, cpuCard) {
 function displayCpuGifFunc(playerCard, cpuCard) {
   if (playerCard.value < cpuCard.value) {
     cpuGifBox.insertAdjacentHTML(
-      "beforeend", `<iframe src="https://giphy.com/embed/tczJoRU7XwBS8" width="480" height="360"></iframe>`
+      "beforeend", `<img src="./assets/gifs/robot_dance-gif.webp">`
     );
   } else {
     cpuGifBox.insertAdjacentHTML(
-      "beforeend", `<iframe src="https://giphy.com/embed/l46CwEYnbFtFfjZNS" width="480" height="472"></iframe>`
+      "beforeend", `<img src="./assets/gifs/robot_lost-gif.webp">`
     );
   }
   wonLostMessage.scrollIntoView()
@@ -141,8 +131,9 @@ function cpuCardDisplayCycle(cpuCard) {
 
 function displayCpuDrawGifFunc() {
   cpuGifBox.insertAdjacentHTML(
-    "beforeend", `<iframe src="https://giphy.com/embed/Jk8F8BanWi3Is" width="480" height="480"></iframe>`
+    "beforeend", `<img src="./assets/gifs/cpu_draw_card-gif.webp">`
   );
+  wonLostMessage.scrollIntoView()
 }
 
 function playerCardDisplayCycle(playerCard) {
@@ -160,9 +151,6 @@ function playerCardDisplayCycle(playerCard) {
   displayPlayerCardBottomName.insertAdjacentHTML("beforeend", `<p>${playerCard.displayName}</p>`);
 
   displayPlayerCardName.insertAdjacentHTML("beforeend",`<p>${playerCard.name} of ${playerCard.suit}</p>`);
-
-  
-
    // var playerCard = cardDeck[playerCardIndex]
 
   // if (playerCard.color == "Black") {
@@ -184,28 +172,23 @@ function playerCardDisplayCycle(playerCard) {
 
 function displayPlayerGifFunc(playerCard){
   if (playerCard.value <= 3) {
-    playerGifBox.insertAdjacentHTML(
-      "beforeend", `<img src="./assets/sweating-gif.webp">`
+    playerGifBox.insertAdjacentHTML("beforeend", `<img src="./assets/gifs/sweating-gif.webp">`
     );
   } else if (playerCard.value >= 3 && playerCard.value <= 7) {
-    playerGifBox.insertAdjacentHTML(
-      "beforeend", `<iframe src="https://giphy.com/embed/5fBH6zf7l8bxukYh74Q" width="480" height="269"></iframe>`
+    playerGifBox.insertAdjacentHTML("beforeend", `<img src="./assets/gifs/really-gif.webp">`
     );
   } else if (playerCard.value >= 7 && playerCard.value <= 10) {
-    playerGifBox.insertAdjacentHTML(
-      "beforeend", `<iframe src="https://giphy.com/embed/WG3RPgRpOtBt0rzZPW" width="480" height="343"></iframe>`
+    playerGifBox.insertAdjacentHTML("beforeend", `<img src="./assets/gifs/so_so-gif.webp">`
     );
   } else if (playerCard.value >= 10 && playerCard.value <= 13) {
-    playerGifBox.insertAdjacentHTML(
-      "beforeend", `<iframe src="https://giphy.com/embed/blFCQZx7vSzKM" width="480" height="360"></iframe>`
+    playerGifBox.insertAdjacentHTML("beforeend", `<img src="./assets/gifs/spongebob_smile-gif.webp">`
     );
   } else if (playerCard.value == 14) {
-    playerGifBox.insertAdjacentHTML(
-      "beforeend", `<iframe src="https://giphy.com/embed/LfPkNKuEjr9Ju" width="480" height="360"></iframe>`
+    playerGifBox.insertAdjacentHTML("beforeend", `<img src="./assets/gifs/king-gif.webp">`
     );
   } 
 
-  wonLostMessage.scrollIntoView()
+  displayPlayerCardName.scrollIntoView()
    // if (playerCard.value <= 3) {
   //   playerGifBox.insertAdjacentHTML(
   //     "beforeend", `<iframe src="https://giphy.com/embed/32mC2kXYWCsg0" width="480" height="270"></iframe>`
@@ -249,8 +232,7 @@ function getDrawnCard() {
 
 
     if (cardDeck[playerCardIndex].color == "Black") {
-      displayPlayerCard.className =
-        "col-2 border rounded bg-dark text-bg-dark fw-bold";
+      displayPlayerCard.className = "col-2 border rounded bg-dark text-bg-dark fw-bold";
       inputPlayerIndex();
     } else {
       displayPlayerCard.className = "col-2 border rounded bg-danger fw-bold";
@@ -269,89 +251,43 @@ function getDrawnCard() {
 
   function inputPlayerIndex() {
     // player card
-    displayPlayerCardTopName.insertAdjacentHTML(
-      "beforeend",
-      `
-  <p>${playerCardDrawnNameDisplay}</p>
-  `
-    );
+    displayPlayerCardTopName.insertAdjacentHTML("beforeend",`
+      <p>${playerCardDrawnNameDisplay}</p>
+    `);
 
-    displayPlayerSuit.insertAdjacentHTML(
-      "beforeend",
+    displayPlayerSuit.insertAdjacentHTML("beforeend",
       playerCardDrawnSuitDisplay
     );
 
-    displayPlayerBottomTopName.insertAdjacentHTML(
-      "beforeend",
-      `
-  <p>${playerCardDrawnNameDisplay}</p>
-  `
-    );
+    displayPlayerBottomTopName.insertAdjacentHTML("beforeend",`
+      <p>${playerCardDrawnNameDisplay}</p>
+    `);
 
-    displayPlayerCardName.insertAdjacentHTML(
-      "beforeend",
-      `
-    <p>${playerCardDrawnName} of ${playerCardDrawnSuit}</p>
-  `
-    );
+    displayPlayerCardName.insertAdjacentHTML("beforeend",`
+      <p>${playerCardDrawnName} of ${playerCardDrawnSuit}</p>
+    `);
   }
 
   function inputCpuIndex() {
     // cpu card
-    displayCpuCardTopName.insertAdjacentHTML(
-      "beforeend",
-      `
-  <p>${cpuCardDrawnNameDisplay}</p>
-`
-    );
+    displayCpuCardTopName.insertAdjacentHTML("beforeend",`
+      <p>${cpuCardDrawnNameDisplay}</p>
+    `);
 
-    displayCpuSuit.insertAdjacentHTML(
-      "beforeend",
+    displayCpuSuit.insertAdjacentHTML("beforeend",
       cpuCardDrawnSuitDisplay
-      );
-
-    displayCpuCardBottomName.insertAdjacentHTML(
-      "beforeend",
-      `
-  <p>${cpuCardDrawnNameDisplay}</p>
-`
     );
 
-    displayCpuCardName.insertAdjacentHTML(
-      "beforeend",
-      `
-    <p>${cpuCardDrawnName} of ${cpuCardDrawnSuit}</p>
-  `
-    );
+    displayCpuCardBottomName.insertAdjacentHTML("beforeend",`
+      <p>${cpuCardDrawnNameDisplay}</p>
+    `);
+
+    displayCpuCardName.insertAdjacentHTML("beforeend",`
+      <p>${cpuCardDrawnName} of ${cpuCardDrawnSuit}</p>
+    `);
   }
   
-  if (playerCardDrawnValue > cpuCardDrawnValue) {
-    wonLostMessage.insertAdjacentHTML(
-      "beforeend",
-      `
-      <p>${playerCardDrawnName} of ${playerCardDrawnSuit} is higher than ${cpuCardDrawnName} of ${cpuCardDrawnSuit}, you won!</p>
-      <div style="width:480px"><iframe allow="fullscreen" frameBorder="0" height="270" src="https://giphy.com/embed/G96zgIcQn1L2xpmdxi/video" width="480"></iframe></div>
-    `
-    );
-  } else if (playerCardDrawnValue < cpuCardDrawnValue) {
-    wonLostMessage.insertAdjacentHTML(
-      "beforeend",
-      `
-      <p>${playerCardDrawnName} of ${playerCardDrawnSuit} is lower than ${cpuCardDrawnName} of ${cpuCardDrawnSuit}, tough luck!!</p>
-      <iframe src="https://giphy.com/embed/d8SRR4aDUINuU" width="480" height="480">
-    `
-    );
-  } else {
-    wonLostMessage.insertAdjacentHTML(
-      "beforeend",
-      `
-      <p>${playerCardDrawnName} of ${playerCardDrawnSuit} has the same value as ${cpuCardDrawnName} of ${cpuCardDrawnSuit}</p><br>
-      <p>It's a Draw! You're saying to yourself, "I know thats kind of the point, we're drawing cards" I mean your cards are the same.. 
-      well the value is the same, not neccesaraly the same exact card, the suit might be different... whatever you get it just draw again</p>
-      <iframe src="https://giphy.com/embed/VPevIZhmlNOms" width="384" height="480"></iframe>
-    `
-    );
-  }
+  
 
 }
 
