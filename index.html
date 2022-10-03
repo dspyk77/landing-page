@@ -42,7 +42,7 @@
     </header>
 
     <main class="container">
-      <section>
+      <header>
         <!-- Jumbotron -->
         <div class="p-5 mb-4 bg-light rounded-3">
           <div class="container-fluid py-5">
@@ -57,89 +57,106 @@
             <button class="btn btn-primary btn-lg" type="button">My Projects &raquo;</button>
           </div>
         </div>
-      </section>
+      </header>
+
       <section>
         <!-- light Summary section-->
         <div>
 
         </div>
       </section>
+
       <section>
-        <div class="bg-light p-5 rounded">
-          <!-- Small/fun project section-->
-          <h1>High Card Low Card</h1>
-          <p class="lead">
-            Here is a little project I thought would be fun. Seemingly simple right? On this side, yeah! Just click the
-            <button onclick="playGame()" class="btn btn-sm btn-primary">Draw button!</button>
-            and just like that you played a little game of high card low card! Little did I know how many trips I was
-            going to have to take to the white board!
-            If you liked this simple yet fun app, take a look at all my other projects!
-          </p>
-      </section>
-      <section>
-        <div class="row"> <!--both cards row-->
-          <div class="col"> <!--player card box-->
-            <div id="display-player-card" style="min-width: 194px;">
-              <!-- player card here -->
-              <div class="col text-center px-0">
-                <div class="row">
-                  <div id="player-card-top-name" class="col align-self-start px-0 m-1">
-                    <!-- player card value -->
-                  </div>
-                  <div id="player-suit-display" class="col align-self-center my-5 py-5">
-                    <!-- player suit svg -->
-                  </div>
-                  <div id="player-card-bottom-name" class="col align-self-end px-0 m-1">
-                    <!-- player card value -->
+
+        <div>
+          <div class="bg-light p-5 rounded">
+            <!-- Small/fun project section-->
+            <h1>High Card Low Card</h1>
+            <p class="lead">
+              Here is a little project I thought would be fun. Seemingly simple right? On this side, yeah! Just click the
+              <button onclick="playGame()" class="btn btn-sm btn-primary">Draw button!</button>
+              and just like that you played a little game of high card low card! Little did I know how many trips I was
+              going to have to take to the white board!
+              If you liked this simple yet fun app, take a look at all my other projects!
+            </p>
+            
+          </div>
+        </div>
+
+        <div>
+          <div class="row"> <!--both cards row-->
+            <div class="col"> <!--player card box-->
+              <div id="display-player-card" style="min-width: 194px;">
+                <!-- player card here -->
+                <div class="col text-center px-0">
+                  <div class="row">
+                    <div id="player-card-top-name" class="col align-self-start px-0 m-1">
+                      <!-- player card value -->
+                    </div>
+                    <div id="player-suit-display" class="col align-self-center my-5 py-5">
+                      <!-- player suit svg -->
+                    </div>
+                    <div id="player-card-bottom-name" class="col align-self-end px-0 m-1">
+                      <!-- player card value -->
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div>
-              <div id="player-gif-box" class="col">
-                <!--Player GIF BOX-->
+
+              <div>
+                <div id="player-gif-box" class="col">
+                  <!--Player GIF BOX-->
+                </div>
+              </div>
+
+              <div id="display-player-card-name" class="row">
+                <!-- PLAYER CARD "NAME OF SUIT" -->
               </div>
             </div>
-            <div id="display-player-card-name" class="row">
-              <!-- PLAYER CARD "NAME OF SUIT" -->
-            </div>
-          </div>
-          <div class="col"> <!--cpu card box-->
-            <div id="display-cpu-card" style="min-width: 194px;">
-              <!-- cpu card here -->
-              <div class="col text-center px-0">
-                <div class="row">
-                  <div id="cpu-card-top-name" class="col align-self-start px-0 m-1">
-                    <!-- cpu card value -->
-                  </div>
-                  <div id="cpu-suit-display" class="col align-self-center my-5 py-5">
-                    <!-- cpu suit svg -->
-                  </div>
-                  <div id="cpu-card-bottom-name" class="col align-self-end px-0 m-1">
-                    <!-- cpu card value -->
+
+            <div class="col"> <!--cpu card box-->
+              <div id="display-cpu-card" style="min-width: 194px;">
+                <!-- cpu card here -->
+                <div class="col text-center px-0">
+                  <div class="row">
+                    <div id="cpu-card-top-name" class="col align-self-start px-0 m-1">
+                      <!-- cpu card value -->
+                    </div>
+                    <div id="cpu-suit-display" class="col align-self-center my-5 py-5">
+                      <!-- cpu suit svg -->
+                    </div>
+                    <div id="cpu-card-bottom-name" class="col align-self-end px-0 m-1">
+                      <!-- cpu card value -->
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div id="cpu-gif-box" class="col">
-              <!-- CPU GIF BOX-->
-            </div>
-            <div id="display-cpu-card-name" class="row">
-              <!-- CPU CARD "NAME OF SUIT" -->
-            </div>
-          </div>
-        </div>
-      </section>
-      <section>
-        <div class="row justify-content-center">
-          <div class="row">
-            <div id="won-lost-msg" class="col">
-              <!-- you won GIF!! you lost GIF!!  -->
+
+              <div id="cpu-gif-box" class="col">
+                <!-- CPU GIF BOX-->
+              </div>
+
+              <div id="display-cpu-card-name" class="row">
+                <!-- CPU CARD "NAME OF SUIT" -->
+              </div>
             </div>
           </div>
         </div>
+
+        <div>
+          <div class="row justify-content-center">
+            <div class="row">
+              <div id="won-lost-msg" class="col">
+                <!-- you won GIF!! you lost GIF!!  -->
+              </div>
+            </div>
+          </div>
+        </div>
+
       </section>
+
     </main>
+
     <footer class="container-fluid">
 
     </footer>
