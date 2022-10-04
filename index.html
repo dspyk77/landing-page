@@ -11,7 +11,7 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="./assets/style.css">
   </head>
 
   <body>
@@ -59,12 +59,7 @@
         </div>
       </header>
 
-      <section>
-        <!-- light Summary section-->
-        <div>
-          
-        </div>
-      </section>
+      
 
       <section>
 
@@ -83,86 +78,76 @@
           </div>
         </div>
 
-        <div>
-          <div class="row"> <!--both cards row-->
-            <div class="col"> <!--player card box-->
-              <div id="display-player-card" style="min-width: 194px;">
-                <!-- player card here -->
-                <div class="col text-center px-0">
-                  <div class="row">
-                    <div id="player-card-top-name" class="col align-self-start px-0 m-1">
-                      <!-- player card value -->
-                    </div>
-                    <div id="player-suit-display" class="col align-self-center my-5 py-5">
-                      <!-- player suit svg -->
-                    </div>
-                    <div id="player-card-bottom-name" class="col align-self-end px-0 m-1">
-                      <!-- player card value -->
-                    </div>
+        <div class="d-flex flex-row justify-content-evenly mt-4"> <!--both cards row-->
+          <div class="d-flex flex-column align-items-center"> <!--player card box-->
+            <div id="display-player-card" style="min-width: 194px;">
+              <!-- player card here -->
+              <div class="text-center px-0">
+                <div class="row">
+                  <div id="player-card-top-name" class="col align-self-start px-0 m-1">
+                    <!-- player card value -->
+                  </div>
+                  <div id="player-suit-display" class="col align-self-center my-5 py-5">
+                    <!-- player suit svg -->
+                  </div>
+                  <div id="player-card-bottom-name" class="col align-self-end px-0 m-1">
+                    <!-- player card value -->
                   </div>
                 </div>
               </div>
-
-              <div>
-                <div id="player-gif-box" class="col">
-                  <!--Player GIF BOX-->
-                </div>
-              </div>
-
-              
             </div>
 
-            <div class="col"> <!--cpu card box-->
-              <div id="display-cpu-card" style="min-width: 194px;">
-                <!-- cpu card here -->
-                <div class="col text-center px-0">
-                  <div class="row">
-                    <div id="cpu-card-top-name" class="col align-self-start px-0 m-1">
-                      <!-- cpu card value -->
-                    </div>
-                    <div id="cpu-suit-display" class="col align-self-center my-5 py-5">
-                      <!-- cpu suit svg -->
-                    </div>
-                    <div id="cpu-card-bottom-name" class="col align-self-end px-0 m-1">
-                      <!-- cpu card value -->
-                    </div>
+            <div id="player-gif-box">
+              <!--Player GIF BOX-->
+            </div>
+          </div>
+
+          <div class="d-flex flex-column align-items-center"> <!--cpu card box-->
+            <div id="display-cpu-card" style="min-width: 194px;">
+              <!-- cpu card here -->
+              <div class="text-center px-0">
+                <div class="row">
+                  <div id="cpu-card-top-name" class="col align-self-start px-0 m-1">
+                    <!-- cpu card value -->
+                  </div>
+                  <div id="cpu-suit-display" class="col align-self-center my-5 py-5">
+                    <!-- cpu suit svg -->
+                  </div>
+                  <div id="cpu-card-bottom-name" class="col align-self-end px-0 m-1">
+                    <!-- cpu card value -->
                   </div>
                 </div>
               </div>
+            </div>
 
-              <div id="cpu-gif-box" class="col">
-                <!-- CPU GIF BOX-->
-              </div>
-
-              
+            <div id="cpu-gif-box">
+              <!-- CPU GIF BOX-->
             </div>
           </div>
         </div>
 
-        <div>
-          <div class="row">
-            <div class="col">
-              <h3 class="row justify-content-center">
-                Results 
-              </h3>
-            </div>
-            <div class="row justify-content-center">
-              <div id="display-player-card-name" class="col text-center">
+        <div class="mt-4 mb-4">
+          <h3 class="text-center bg-light rounded">Results</h3>
+            <div class="d-flex flex-row justify-content-around">
+              <div id="display-player-card-name">
                 <!-- PLAYER CARD "NAME OF SUIT" -->
               </div>
-              <div id="display-cpu-card-name" class="col text-center">
+              <div id="display-cpu-card-name">
                 <!-- CPU CARD "NAME OF SUIT" -->
               </div>
             </div>
+          <div id="won-lost-msg" class="text-center">
+            <!-- you won GIF!! you lost GIF!!  -->
             
-            <div class="row">
-              <div id="won-lost-msg" class="col">
-                <!-- you won GIF!! you lost GIF!!  -->
-              </div>
-            </div>
           </div>
         </div>
 
+      </section>
+      <section id="light-summary-section">
+        <!-- light Summary section-->
+        <div>
+          
+        </div>
       </section>
 
     </main>

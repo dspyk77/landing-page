@@ -12,12 +12,12 @@ var displayCpuCardTopName = document.querySelector("#cpu-card-top-name");
 var displayCpuCardBottomName = document.querySelector("#cpu-card-bottom-name");
 var displayPlayerSuit = document.querySelector("#player-suit-display");
 var displayCpuSuit = document.querySelector("#cpu-suit-display");
+var lightSummarySection = document.querySelector("#light-summary-section")
 // see ./assets/card-generation.js
 var cardDeck = genCardDeck();
 
 // investigate using event listeners for on click and hide/show GIF
 
-// psuedo code
 // on click drawn card btn
 function playGame() {
 
@@ -31,74 +31,64 @@ function playGame() {
   var cpuCard =  cardDeck[cpuCardIndex]
 
   // display player card 
-  // var playerCardDrawnNameDisplay = cardDeck[playerCardIndex].displayName;
-  // var playerCardDrawnSuitDisplay = cardDeck[playerCardIndex].displaySuit;
-  // var playerCardDrawnName = cardDeck[playerCardIndex].name;
-  // var playerCardDrawnSuit = cardDeck[playerCardIndex].suit;
   playerCardDisplayCycle(playerCard)
   
   // then player GIF
   displayPlayerGifFunc(playerCard)
+
+  displayTimeout(playerCard, cpuCard)
+}
+var cpuDrawnGifTime = null
+var clearCpuGifBoxTime = null
+var cardDisplayCycleTime = null
+var cpuGifFuncTime = null
+var displayResultsTime = null
+
+function displayTimeout(playerCard, cpuCard) {
   // cpu draw gif
-  setTimeout(displayCpuDrawGifFunc, 2000)
+  cpuDrawnGifTime = setTimeout(displayCpuDrawGifFunc, 2000)
 
   // then CPU card 
-  setTimeout(clearCpuGifBox, 8000)
+  clearCpuGifBoxTime = setTimeout(clearCpuGifBox, 8000)
   setTimeout(cpuCardDisplayCycle, 8200, cpuCard)
 
   // then cpu Gif
-  setTimeout(displayCpuGifFunc, 8400, playerCard, cpuCard)
+  cardDisplayCycleTime = setTimeout(displayCpuGifFunc, 8400, playerCard, cpuCard)
   
   // player won/lost 
-  setTimeout(displayResults, 10400, playerCard, cpuCard)
+  displayResultsTime = setTimeout(displayResults, 10400, playerCard, cpuCard)
 }
 
-
-// display CPU drawing GIF function 
-  // cpuGifBox insertAdjacentHTM
-
-// display cpu card name and suit function 
-  // pass in indexed cards (playerCardIndex, cpuCardIndex)
-  // declare cpuCardDrawnNameDisplay - cpuCardDrawnSuitDisplay
-  // displayCpuCardTopName, displayCpuCardBottomName and cpuCardDrawnSuitDisplay insertAdjacentHTML
-
-// display card color function 
-  // pass in indexed cards (playerCardIndex, cpuCardIndex)
-  // check cardDeck[playerCardIndex].color
-  // set displayPlayerCard.className acordingly 
-
-
-    
-// display player won/lost string and GIF function
-    // pass in indexed cards value (playerCardIndex - cpuCardIndex)
-    // declare variable's playerCardDrawnName - playerCardDrawnSuit - cpuCardDrawnName - cpuCardDrawnSuit - playerCardDrawnValue - cpuCardDrawnValue
-    // check higher lower value if (playerCardIndex > cpuCardIndex) ext. to display player won/lost string and GIF
-    // playerGifBox insertAdjacentHTM
-
-
+function stopTime() {
+  clearTimeout(cpuDrawnGifTime)
+  clearTimeout(clearCpuGifBoxTime)
+  clearTimeout(cardDisplayCycleTime)
+  clearTimeout(displayResultsTime)
+}
 function displayResults(playerCard, cpuCard) {
+  lightSummarySection.scrollIntoView()
   if (playerCard.value > cpuCard.value) {
     wonLostMessage.insertAdjacentHTML("beforeend",`
-      <p>${playerCard.name} of ${playerCard.suit} is higher than ${cpuCard.name} of ${cpuCard.suit}, you won!</p>
       <img src="./assets/gifs/the_office_party.gif">
+      <p class="fs-3">${playerCard.name} of ${playerCard.suit} is higher than ${cpuCard.name} of ${cpuCard.suit}, you won!</p>
     `);
   } else if (playerCard.value < cpuCard.value) {
     wonLostMessage.insertAdjacentHTML("beforeend",`
-      <p>${playerCard.name} of ${playerCard.suit} is lower than ${cpuCard.name} of ${cpuCard.suit}, tough luck!!</p>
       <img src="./assets/gifs/the_office_no.webp">
+      <p class="fs-3">${playerCard.name} of ${playerCard.suit} is lower than ${cpuCard.name} of ${cpuCard.suit}, tough luck!!</p>
     `);
   } else {
     wonLostMessage.insertAdjacentHTML("beforeend",`
-      <p>${playerCard.name} of ${playerCard.suit} has the same value as ${cpuCard.name} of ${cpuCard.suit}</p><br>
-      <p>It's a Draw! You're saying to yourself, "I know thats kind of the point, we're drawing cards" I mean your cards are the same.. 
-      well the value is the same, not neccesaraly the same exact card, the suit might be different... whatever you get it just draw again</p>
       <img src="./assets/gifs/tie-gif.webp">
+      <p class="fs-3">${playerCard.name} of ${playerCard.suit} has the same value as ${cpuCard.name} of ${cpuCard.suit}</p><br>
+      <p class="fw-semibold">It's a Draw! You're saying to yourself, "I know thats kind of the point, we're drawing cards" I mean your cards are the same.. 
+      well the value is the same, not neccesaraly the same exact card, the suit might be different... whatever you get it just draw again</p>
     `);
   }
-  wonLostMessage.scrollIntoView()
 }
 
 function displayCpuGifFunc(playerCard, cpuCard) {
+  lightSummarySection.scrollIntoView()
   if (playerCard.value < cpuCard.value) {
     cpuGifBox.insertAdjacentHTML(
       "beforeend", `<img src="./assets/gifs/robot_dance-gif.webp">`
@@ -108,7 +98,6 @@ function displayCpuGifFunc(playerCard, cpuCard) {
       "beforeend", `<img src="./assets/gifs/robot_lost-gif.webp">`
     );
   }
-  wonLostMessage.scrollIntoView()
 }
 
 function cpuCardDisplayCycle(cpuCard) {
@@ -126,14 +115,14 @@ function cpuCardDisplayCycle(cpuCard) {
 
   displayCpuCardBottomName.insertAdjacentHTML("beforeend", `<p>${cpuCard.displayName}</p>`);
 
-  displayCpuCardName.insertAdjacentHTML("beforeend",`<p>${cpuCard.name} of ${cpuCard.suit}</p>`);
+  displayCpuCardName.insertAdjacentHTML("beforeend",`<p class="fs-3 text-decoration-underline">CPU Card is:</p><br><p class="fs-3">${cpuCard.name} of ${cpuCard.suit}</p>`);
 }
 
 function displayCpuDrawGifFunc() {
+  lightSummarySection.scrollIntoView()
   cpuGifBox.insertAdjacentHTML(
     "beforeend", `<img src="./assets/gifs/cpu_draw_card-gif.webp">`
   );
-  wonLostMessage.scrollIntoView()
 }
 
 function playerCardDisplayCycle(playerCard) {
@@ -150,27 +139,11 @@ function playerCardDisplayCycle(playerCard) {
 
   displayPlayerCardBottomName.insertAdjacentHTML("beforeend", `<p>${playerCard.displayName}</p>`);
 
-  displayPlayerCardName.insertAdjacentHTML("beforeend",`<p>${playerCard.name} of ${playerCard.suit}</p>`);
-   // var playerCard = cardDeck[playerCardIndex]
-
-  // if (playerCard.color == "Black") {
-  //   displayPlayerCard.className =
-  //     "col-2 border rounded bg-dark text-bg-dark fw-bold";
-  // } else {
-  //   displayPlayerCard.className = "col-2 border rounded bg-danger fw-bold";
-  // }
-
-  // displayPlayerCardTopName.insertAdjacentHTML("beforeend", `<p>${playerCard.displayName}</p>`);
-
-  // displayPlayerSuit.insertAdjacentHTML("beforeend", playerCard.displaySuit);
-
-  // displayPlayerBottomTopName.insertAdjacentHTML("beforeend", `<p>${playerCard.displayName}</p>`);
-
-  // displayPlayerCardName.insertAdjacentHTML("beforeend",`<p>${playerCard.name} of ${playerCard.suit}</p>`);
-
+  displayPlayerCardName.insertAdjacentHTML("beforeend",`<p class="fs-3 text-decoration-underline">Your Card is:</p><br><p class="fs-3">${playerCard.name} of ${playerCard.suit}</p>`);
 }
 
 function displayPlayerGifFunc(playerCard){
+  lightSummarySection.scrollIntoView()
   if (playerCard.value <= 3) {
     playerGifBox.insertAdjacentHTML("beforeend", `<img src="./assets/gifs/sweating-gif.webp">`
     );
@@ -187,108 +160,6 @@ function displayPlayerGifFunc(playerCard){
     playerGifBox.insertAdjacentHTML("beforeend", `<img src="./assets/gifs/king-gif.webp">`
     );
   } 
-
-  displayPlayerCardName.scrollIntoView()
-   // if (playerCard.value <= 3) {
-  //   playerGifBox.insertAdjacentHTML(
-  //     "beforeend", `<iframe src="https://giphy.com/embed/32mC2kXYWCsg0" width="480" height="270"></iframe>`
-  //   );
-  // } else if (playerCard.value >= 3 && playerCard.value <= 7) {
-  //   playerGifBox.insertAdjacentHTML(
-  //     "beforeend", `<iframe src="https://giphy.com/embed/5fBH6zf7l8bxukYh74Q" width="480" height="269"></iframe>`
-  //   );
-  // } else if (playerCard.value >= 7 && playerCard.value <= 10) {
-  //   playerGifBox.insertAdjacentHTML(
-  //     "beforeend", `<iframe src="https://giphy.com/embed/WG3RPgRpOtBt0rzZPW" width="480" height="343"></iframe>`
-  //   );
-  // } else if (playerCard.value >= 10 && playerCard.value <= 13) {
-  //   playerGifBox.insertAdjacentHTML(
-  //     "beforeend", `<iframe src="https://giphy.com/embed/blFCQZx7vSzKM" width="480" height="360"></iframe>`
-  //   );
-  // } else if (playerCard.value == 14) {
-  //   playerGifBox.insertAdjacentHTML(
-  //     "beforeend", `<iframe src="https://giphy.com/embed/LfPkNKuEjr9Ju" width="480" height="360"></iframe>`
-  //   );
-  // }
-}
-
-// function to get random card for both players
-function getDrawnCard() {
-  var playerCardIndex = getRandomInt(0, 51);
-  var cpuCardIndex = getRandomInt(0, 51);
-
-  var playerCardDrawnValue = cardDeck[playerCardIndex].value;
-  var cpuCardDrawnValue = cardDeck[cpuCardIndex].value;
-  var playerCardDrawnName = cardDeck[playerCardIndex].name;
-  var cpuCardDrawnName = cardDeck[cpuCardIndex].name;
-  var playerCardDrawnSuit = cardDeck[playerCardIndex].suit;
-  var cpuCardDrawnSuit = cardDeck[cpuCardIndex].suit;
-  var playerCardDrawnNameDisplay = cardDeck[playerCardIndex].displayName;
-  var cpuCardDrawnNameDisplay = cardDeck[cpuCardIndex].displayName;
-  var playerCardDrawnSuitDisplay = cardDeck[playerCardIndex].displaySuit;
-  var cpuCardDrawnSuitDisplay = cardDeck[cpuCardIndex].displaySuit;
-
-  clearAllBox();
-
-
-    if (cardDeck[playerCardIndex].color == "Black") {
-      displayPlayerCard.className = "col-2 border rounded bg-dark text-bg-dark fw-bold";
-      inputPlayerIndex();
-    } else {
-      displayPlayerCard.className = "col-2 border rounded bg-danger fw-bold";
-      inputPlayerIndex();
-    }
-
-    if (cardDeck[cpuCardIndex].color == "Black") {
-      displayCpuCard.className =
-        "col-2 border rounded bg-dark text-bg-dark fw-bold";
-      inputCpuIndex();
-    } else {
-      displayCpuCard.className = "col-2 border rounded bg-danger fw-bold";
-      inputCpuIndex();
-    }
-
-
-  function inputPlayerIndex() {
-    // player card
-    displayPlayerCardTopName.insertAdjacentHTML("beforeend",`
-      <p>${playerCardDrawnNameDisplay}</p>
-    `);
-
-    displayPlayerSuit.insertAdjacentHTML("beforeend",
-      playerCardDrawnSuitDisplay
-    );
-
-    displayPlayerBottomTopName.insertAdjacentHTML("beforeend",`
-      <p>${playerCardDrawnNameDisplay}</p>
-    `);
-
-    displayPlayerCardName.insertAdjacentHTML("beforeend",`
-      <p>${playerCardDrawnName} of ${playerCardDrawnSuit}</p>
-    `);
-  }
-
-  function inputCpuIndex() {
-    // cpu card
-    displayCpuCardTopName.insertAdjacentHTML("beforeend",`
-      <p>${cpuCardDrawnNameDisplay}</p>
-    `);
-
-    displayCpuSuit.insertAdjacentHTML("beforeend",
-      cpuCardDrawnSuitDisplay
-    );
-
-    displayCpuCardBottomName.insertAdjacentHTML("beforeend",`
-      <p>${cpuCardDrawnNameDisplay}</p>
-    `);
-
-    displayCpuCardName.insertAdjacentHTML("beforeend",`
-      <p>${cpuCardDrawnName} of ${cpuCardDrawnSuit}</p>
-    `);
-  }
-  
-  
-
 }
 
 function clearAllBox() {
