@@ -94,17 +94,13 @@ CPU WON GIF *
 ITS A DRAW GIF *
 <iframe src="https://giphy.com/embed/VPevIZhmlNOms" width="384" height="480"></iframe>
 
-
-
-working on setTimeout() for GIF and Card display timing 
-
-work on clearing the timing if button is clicked before function runs through 
-
 work on scrollIntoView() to work properly 
 
 display results section when resluts setTimeout runs 
 
 add a Draw again button in the bottom if the results page 
+
+
 
 
 

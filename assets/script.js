@@ -20,9 +20,10 @@ var cardDeck = genCardDeck();
 
 // on click drawn card btn
 function playGame() {
-
   // clear all boxs 
   clearAllBox();
+  stopTime();
+  
   
   // index random card 
   var playerCardIndex = getRandomInt(0, 51);
@@ -36,8 +37,23 @@ function playGame() {
   // then player GIF
   displayPlayerGifFunc(playerCard)
 
+  // setTimeout(cpuCardDisplayCycle, 8200, cpuCard)
+
+  // // cpu draw gif
+  // setTimeout(displayCpuDrawGifFunc, 2000)
+
+  // // then CPU card 
+  // setTimeout(clearCpuGifBox, 8000)
+  
+  // // then cpu Gif
+  // setTimeout(displayCpuGifFunc, 8400, playerCard, cpuCard)
+ 
+  // // player won/lost 
+  // setTimeout(displayResults, 10400, playerCard, cpuCard)
   displayTimeout(playerCard, cpuCard)
+
 }
+
 var cpuDrawnGifTime = null
 var clearCpuGifBoxTime = null
 var cardDisplayCycleTime = null
@@ -50,10 +66,12 @@ function displayTimeout(playerCard, cpuCard) {
 
   // then CPU card 
   clearCpuGifBoxTime = setTimeout(clearCpuGifBox, 8000)
-  setTimeout(cpuCardDisplayCycle, 8200, cpuCard)
+
+  // then CPU card 
+  cardDisplayCycleTime = setTimeout(cpuCardDisplayCycle, 8200, cpuCard)
 
   // then cpu Gif
-  cardDisplayCycleTime = setTimeout(displayCpuGifFunc, 8400, playerCard, cpuCard)
+  cpuGifFuncTime = setTimeout(displayCpuGifFunc, 8400, playerCard, cpuCard)
   
   // player won/lost 
   displayResultsTime = setTimeout(displayResults, 10400, playerCard, cpuCard)
@@ -63,8 +81,10 @@ function stopTime() {
   clearTimeout(cpuDrawnGifTime)
   clearTimeout(clearCpuGifBoxTime)
   clearTimeout(cardDisplayCycleTime)
+  clearTimeout(cpuGifFuncTime)
   clearTimeout(displayResultsTime)
 }
+
 function displayResults(playerCard, cpuCard) {
   lightSummarySection.scrollIntoView()
   if (playerCard.value > cpuCard.value) {
@@ -80,7 +100,7 @@ function displayResults(playerCard, cpuCard) {
   } else {
     wonLostMessage.insertAdjacentHTML("beforeend",`
       <img src="./assets/gifs/tie-gif.webp">
-      <p class="fs-3">${playerCard.name} of ${playerCard.suit} has the same value as ${cpuCard.name} of ${cpuCard.suit}</p><br>
+      <p class="fs-3">${playerCard.name} of ${playerCard.suit} has the same value as ${cpuCard.name} of ${cpuCard.suit}</p>
       <p class="fw-semibold">It's a Draw! You're saying to yourself, "I know thats kind of the point, we're drawing cards" I mean your cards are the same.. 
       well the value is the same, not neccesaraly the same exact card, the suit might be different... whatever you get it just draw again</p>
     `);
@@ -115,13 +135,19 @@ function cpuCardDisplayCycle(cpuCard) {
 
   displayCpuCardBottomName.insertAdjacentHTML("beforeend", `<p>${cpuCard.displayName}</p>`);
 
-  displayCpuCardName.insertAdjacentHTML("beforeend",`<p class="fs-3 text-decoration-underline">CPU Card is:</p><br><p class="fs-3">${cpuCard.name} of ${cpuCard.suit}</p>`);
+  displayCpuCardName.insertAdjacentHTML("beforeend",`<p class="fs-3 text-decoration-underline">CPU Card is:</p><p class="fs-3">${cpuCard.name} of ${cpuCard.suit}</p>`);
 }
 
 function displayCpuDrawGifFunc() {
+  // lightSummarySection.scrollIntoView()
+  // cpuGifBox.insertAdjacentHTML(
+  //   "beforeend", `<img src="./assets/gifs/cpu_draw_card-gif.webp">`
+  // );
+  
+  // this forces the browser to GET the GIF for every drawn btn click. If user draws before the timed display finishes the draw GIF now fully resets
   lightSummarySection.scrollIntoView()
   cpuGifBox.insertAdjacentHTML(
-    "beforeend", `<img src="./assets/gifs/cpu_draw_card-gif.webp">`
+    "beforeend", `<img src="./assets/gifs/cpu_draw_card-gif.webp?thingy=${performance.now()}">`
   );
 }
 
@@ -139,7 +165,7 @@ function playerCardDisplayCycle(playerCard) {
 
   displayPlayerCardBottomName.insertAdjacentHTML("beforeend", `<p>${playerCard.displayName}</p>`);
 
-  displayPlayerCardName.insertAdjacentHTML("beforeend",`<p class="fs-3 text-decoration-underline">Your Card is:</p><br><p class="fs-3">${playerCard.name} of ${playerCard.suit}</p>`);
+  displayPlayerCardName.insertAdjacentHTML("beforeend",`<p class="fs-3 text-decoration-underline">Your Card is:</p><p class="fs-3">${playerCard.name} of ${playerCard.suit}</p>`);
 }
 
 function displayPlayerGifFunc(playerCard){
@@ -178,7 +204,7 @@ function clearAllBox() {
   cpuGifBox.innerHTML = "";
 }
 
-function clearCpuGifBox () {
+function clearCpuGifBox() {
   cpuGifBox.innerHTML = "";
 }
 
