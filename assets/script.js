@@ -147,7 +147,7 @@ function cpuCardDisplayCycle(cpuCard) {
 
   displayCpuCardBottomName.insertAdjacentHTML("beforeend", `<p>${cpuCard.displayName}</p>`);
 
-  displayCpuCardName.insertAdjacentHTML("beforeend",`<p class="fs-3 text-decoration-underline">CPU Card is:</p><p class="fs-3">${cpuCard.name} of ${cpuCard.suit}</p>`);
+  displayCpuCardName.insertAdjacentHTML("beforeend",`<p class="fs-3">${cpuCard.name} of ${cpuCard.suit}</p>`);
 }
 
 function displayCpuDrawGifFunc() {
@@ -177,7 +177,7 @@ function playerCardDisplayCycle(playerCard) {
 
   displayPlayerCardBottomName.insertAdjacentHTML("beforeend", `<p>${playerCard.displayName}</p>`);
 
-  displayPlayerCardName.insertAdjacentHTML("beforeend",`<p class="fs-3 text-decoration-underline">Your Card is:</p><p class="fs-3">${playerCard.name} of ${playerCard.suit}</p>`);
+  displayPlayerCardName.insertAdjacentHTML("beforeend",`<p class="fs-3">${playerCard.name} of ${playerCard.suit}</p>`);
 }
 
 function displayPlayerGifFunc(playerCard){
@@ -227,7 +227,7 @@ function hideCardDisplaySection() {
 
 function doneWithGame() {
   hideCardDisplaySection()
-  displayAllDoneSection.className = "bg-light p-5 rounded"
+  displayAllDoneSection.className = "bg-light pb-5 px-5 rounded"
 }
 
 function playAgain() {
