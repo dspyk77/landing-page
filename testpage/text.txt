@@ -94,11 +94,8 @@ CPU WON GIF *
 ITS A DRAW GIF *
 <iframe src="https://giphy.com/embed/VPevIZhmlNOms" width="384" height="480"></iframe>
 
-work on scrollIntoView() to work properly 
 
-display results section when resluts setTimeout runs 
 
-add a Draw again button in the bottom if the results page 
 
 
 

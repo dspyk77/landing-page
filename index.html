@@ -88,6 +88,7 @@
 
           <div class="d-flex flex-row justify-content-evenly my-4"> <!--both cards row-->
             <div class="d-flex flex-column align-items-center"> <!--player card box-->
+              <p class="fs-3 text-decoration-underline">YOU</p>
               <div id="display-player-card" style="min-width: 194px;">
                 <!-- player card here -->
                 <div class="text-center px-0">
@@ -110,7 +111,12 @@
               </div>
             </div>
 
+            <div class="d-flex flex-column justify-content-center">
+              <p class="fs-1 fw-bold text-decoration-underline">VS</p>
+            </div>
+
             <div class="d-flex flex-column align-items-center"> <!--cpu card box-->
+              <p class="fs-3 text-decoration-underline">CPU</p>
               <div id="display-cpu-card" style="min-width: 194px;">
                 <!-- cpu card here -->
                 <div class="text-center px-0">
@@ -136,6 +142,7 @@
 
           <div id="results-block" class="d-none">
             <h3 class="text-center bg-light rounded">Results</h3>
+            
               <div class="d-flex flex-row justify-content-around">
                 <div id="display-player-card-name">
                   <!-- PLAYER CARD "NAME OF SUIT" -->
