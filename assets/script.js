@@ -12,7 +12,13 @@ var displayCpuCardTopName = document.querySelector("#cpu-card-top-name");
 var displayCpuCardBottomName = document.querySelector("#cpu-card-bottom-name");
 var displayPlayerSuit = document.querySelector("#player-suit-display");
 var displayCpuSuit = document.querySelector("#cpu-suit-display");
+var displayResultsBlock = document.querySelector("#results-block")
 var lightSummarySection = document.querySelector("#light-summary-section")
+var cardDisplaySection = document.querySelector("#card-display-section")
+var displayAllDoneSection = document.querySelector("#all-done-section")
+var cardGameSection = document.querySelector("#card-game-section")
+
+
 // see ./assets/card-generation.js
 var cardDeck = genCardDeck();
 
@@ -20,6 +26,12 @@ var cardDeck = genCardDeck();
 
 // on click drawn card btn
 function playGame() {
+  // if user wants to play again after clicking "all done" btn 
+  hideCardDisplaySection()
+  
+  cardDisplaySection.className = "d-block"
+  displayAllDoneSection.className = "d-none"
+  
   // clear all boxs 
   clearAllBox();
   stopTime();
@@ -86,7 +98,8 @@ function stopTime() {
 }
 
 function displayResults(playerCard, cpuCard) {
-  lightSummarySection.scrollIntoView()
+  displayResultsBlock.className = "d-block mt-4 mb-4"
+  wonLostMessage.scrollIntoView()
   if (playerCard.value > cpuCard.value) {
     wonLostMessage.insertAdjacentHTML("beforeend",`
       <img src="./assets/gifs/the_office_party.gif">
@@ -108,7 +121,6 @@ function displayResults(playerCard, cpuCard) {
 }
 
 function displayCpuGifFunc(playerCard, cpuCard) {
-  lightSummarySection.scrollIntoView()
   if (playerCard.value < cpuCard.value) {
     cpuGifBox.insertAdjacentHTML(
       "beforeend", `<img src="./assets/gifs/robot_dance-gif.webp">`
@@ -145,7 +157,7 @@ function displayCpuDrawGifFunc() {
   // );
   
   // this forces the browser to GET the GIF for every drawn btn click. If user draws before the timed display finishes the draw GIF now fully resets
-  lightSummarySection.scrollIntoView()
+  
   cpuGifBox.insertAdjacentHTML(
     "beforeend", `<img src="./assets/gifs/cpu_draw_card-gif.webp?thingy=${performance.now()}">`
   );
@@ -169,7 +181,7 @@ function playerCardDisplayCycle(playerCard) {
 }
 
 function displayPlayerGifFunc(playerCard){
-  lightSummarySection.scrollIntoView()
+  cpuGifBox.scrollIntoView()
   if (playerCard.value <= 3) {
     playerGifBox.insertAdjacentHTML("beforeend", `<img src="./assets/gifs/sweating-gif.webp">`
     );
@@ -206,6 +218,24 @@ function clearAllBox() {
 
 function clearCpuGifBox() {
   cpuGifBox.innerHTML = "";
+}
+
+function hideCardDisplaySection() {
+  cardDisplaySection.className = "d-none"
+  displayResultsBlock.className = "d-none"
+}
+
+function doneWithGame() {
+  hideCardDisplaySection()
+  displayAllDoneSection.className = "bg-light p-5 rounded"
+}
+
+function playAgain() {
+
+  cardGameSection.scrollIntoView()
+
+  setTimeout(playGame, 800)
+ 
 }
 
 function getRandomInt(min, max) {

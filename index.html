@@ -63,22 +63,28 @@
 
       <section>
 
-        <div>
-          <div class="bg-light p-5 rounded">
-            <!-- Small/fun project section-->
-            <h1>High Card Low Card</h1>
-            <p class="lead">
-              Here is a little project I thought would be fun. Seemingly simple right? On this side, yeah! Just click the
-              <button onclick="playGame()" class="btn btn-sm btn-primary">Draw button!</button>
-              and just like that you played a little game of high card low card! Little did I know how many trips I was
-              going to have to take to the white board!
-              If you liked this simple yet fun app, take a look at all my other projects!
-            </p>
-            
-          </div>
+        <div id="card-game-section" class="bg-light p-5 rounded">
+          <!-- Small/fun project section-->
+          <h1>High Card Low Card</h1>
+          <p class="lead">
+            Here is a little project I thought would be fun. Just click the
+            <button onclick="playGame()" class="btn btn-sm btn-primary">Draw button!</button>
+          </p>
+        </div>
+        <div id="all-done-section" class="d-none">
+          <h2>You did it!</h2>
+          <p>
+            I hope you had fun! This project was a great example of why I love programming. 
+            I had an idea for a simple game on my landing page that hopefully makes someone smile
+            and shows at least a little program knowledge. Building this game ended up being substantially
+            more complex than I originally anticipated, but that's one of the best parts of building apps! Every project
+            that leads to a "head banging" moment gives me more tools to build better apps, 
+            faster and more efficiently than the last. If you care to play again you can click this 
+            <button onclick="playGame()" class="btn btn-sm btn-primary">Draw button!</button>. Have Fun!
+          </p>
         </div>
 
-        <section id="card-display-section">
+        <section id="card-display-section" class="d-none">
 
           <div class="d-flex flex-row justify-content-evenly my-4"> <!--both cards row-->
             <div class="d-flex flex-column align-items-center"> <!--player card box-->
@@ -142,8 +148,8 @@
               <!-- you won GIF!! you lost GIF!!  -->
             </div>
               <div class="d-flex flex-row-reverse">     
-                <button onclick="playGame()" class="btn btn-sm btn-primary">Draw again!</button>
-                <button onclick="hideCardDisplaySection()" class="btn btn-sm btn-primary me-1">I'm all done</button>
+                <button onclick="playAgain()" class="btn btn-sm btn-primary">Draw again!</button>
+                <button onclick="doneWithGame()" class="btn btn-sm btn-primary me-1">I'm all done</button>
               </div>
           </div>
 
@@ -152,8 +158,15 @@
       </section>
       <section id="light-summary-section">
         <!-- light Summary section-->
-        <div>
-          
+        <div class="bg-light p-5 rounded my-4">
+          <!-- Small/fun project section-->
+          <h1>A little About Me</h1>
+          <p class="lead">
+            About Me temp Filler! About Me temp Filler! About Me temp Filler! About Me temp Filler! About Me temp Filler!
+            About Me temp Filler! About Me temp Filler! About Me temp Filler! About Me temp Filler! About Me temp Filler!
+            About Me temp Filler! About Me temp Filler! About Me temp Filler! About Me temp Filler! About Me temp Filler!
+          </p>
+          <button class="btn btn-primary btn-lg">About Me &raquo;</button>
         </div>
       </section>
 
