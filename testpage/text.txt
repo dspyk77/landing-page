@@ -95,7 +95,109 @@ ITS A DRAW GIF *
 <iframe src="https://giphy.com/embed/VPevIZhmlNOms" width="384" height="480"></iframe>
 
 
+<footer class="bg-dark text-white pt-3 mt-4">
+  <div class="container-fluid d-flex flex-column text-center text-sm-left justify-content-around">
+    <div>
+      <img class="mt-3 mr-4" src="./assets/images/logo.png" style="width: 221px; height: 69px;"></img>
+    </div>
 
+    <div>
+      <h5>Contact Us</h5>
+      <ol class="list-unstyled">
+        <li>
+          <i class="fas fa-phone mr-1"></i>
+          <a href="tel:+4023623709">(402) 362-3709</a>
+        </li>
+        <li>
+          <i class="fas fa-envelope mr-1"></i>
+          <a href="mailto:support@crossroadsgpsinc.com">support@crossroadsgpsinc.com</a>
+        </li>
+        <li>
+          <i class="fas fa-map-marked-alt mr-1"></i>
+          <a href="https://goo.gl/maps/zcBBv5fmJhsa5qU57">
+            2711 Enterprise Ave<br>
+            <span style="margin-left: 27px;">York, NE 68467</span>
+          </a>
+        </li>
+      </ol>
+    </div>
+
+    <div>
+      <h5>Support</h5>
+      <ol class="list-unstyled">
+        <li>
+          <i class="fas fa-phone mr-1"></i>
+          <a href="tel:+4028070295">(402) 807-0295</a>
+        </li>
+      <ol>
+    </div>
+
+    <div class="d-none d-lg-block"></div>
+
+    <div class="d-none d-lg-block"></div>
+  </div>
+
+  <div>
+    <ol class="list-unstyled list-inline text-center">
+      <li class="list-inline-item">
+        <a class="social-icon" href="https://www.facebook.com/CrossroadsGpsInc"><i class="fab fa-facebook-square fa-2x m-2"></i></a>
+      </li>
+      <li class="list-inline-item">
+        <a class="social-icon" href="https://twitter.com/GPSCrossroads"><i class="fab fa-twitter fa-2x m-2"></i></a>
+      </li>
+      <li class="list-inline-item">
+        <a class="social-icon" href="https://www.youtube.com/channel/UCu4yTYYTeeG-rduv4lquWwg"><i class="fab fa-youtube fa-2x m-2"></i></a>
+      </li>
+    </ol>
+  </div>
+
+  <div class="text-center text-white text-sm pb-1">
+    <!-- add date time -->
+    Copyright Ⓒ 2021 - Crossroads GPS Inc. - All rights reserved
+  </div>
+</footer>
+
+<div className="flex justify-center content-center gap-1">
+      <a
+        href="https://gmail.com"
+        target="_blank"
+        className="text-white hover:text-cyan-400"
+      >
+        <FaEnvelopeSquare className="text-4xl" />
+      </a>
+
+      <a
+        href="https://facebook.com"
+        target="_blank"
+        className="text-white hover:text-cyan-400"
+      >
+        <FaFacebookSquare className="text-4xl" />
+      </a>
+
+      <a
+        href="https://twitter.com"
+        target="_blank"
+        className="text-white hover:text-cyan-400"
+      >
+        <FaTwitterSquare className="text-4xl" />
+      </a>
+
+      <a
+        href="https://instagram.com"
+        target="_blank"
+        className="text-white hover:text-cyan-400"
+      >
+        <FaInstagramSquare className="text-4xl" />
+      </a>
+
+      <a
+        href="https://linkedin.com"
+        target="_blank"
+        className="text-white hover:text-cyan-400"
+      >
+        <FaLinkedin className="text-4xl" />
+      </a>
+    </div>
 
 
 
