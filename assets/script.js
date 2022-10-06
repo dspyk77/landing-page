@@ -17,6 +17,9 @@ var lightSummarySection = document.querySelector("#light-summary-section")
 var cardDisplaySection = document.querySelector("#card-display-section")
 var displayAllDoneSection = document.querySelector("#all-done-section")
 var cardGameSection = document.querySelector("#card-game-section")
+var drawCardBtn = document.querySelector("#draw-card-btn")
+var drawAgainBtn = document.querySelector("#draw-agian-btn")
+var allDoneBtn = document.querySelector("#all-done-btn")
 
 
 // see ./assets/card-generation.js
@@ -25,6 +28,12 @@ var cardDeck = genCardDeck();
 // investigate using event listeners for on click and hide/show GIF
 
 // on click drawn card btn
+drawCardBtn.addEventListener("click", () => {
+  playGame()
+});
+
+
+
 function playGame() {
   // if user wants to play again after clicking "all done" btn 
   hideCardDisplaySection()
@@ -35,7 +44,6 @@ function playGame() {
   // clear all boxs 
   clearAllBox();
   stopTime();
-  
   
   // index random card 
   var playerCardIndex = getRandomInt(0, 51);
@@ -49,21 +57,7 @@ function playGame() {
   // then player GIF
   displayPlayerGifFunc(playerCard)
 
-  // setTimeout(cpuCardDisplayCycle, 8200, cpuCard)
-
-  // // cpu draw gif
-  // setTimeout(displayCpuDrawGifFunc, 2000)
-
-  // // then CPU card 
-  // setTimeout(clearCpuGifBox, 8000)
-  
-  // // then cpu Gif
-  // setTimeout(displayCpuGifFunc, 8400, playerCard, cpuCard)
- 
-  // // player won/lost 
-  // setTimeout(displayResults, 10400, playerCard, cpuCard)
   displayTimeout(playerCard, cpuCard)
-
 }
 
 var cpuDrawnGifTime = null
@@ -117,7 +111,8 @@ function displayResults(playerCard, cpuCard) {
       well the value is the same, not neccesaraly the same exact card, the suit might be different... whatever you get it just draw again</p>
     `);
   }
-  wonLostMessage.scrollIntoView()
+  // wonLostMessage.scrollIntoView()
+  cpuGifBox.scrollIntoView()
 }
 
 function displayCpuGifFunc(playerCard, cpuCard) {
@@ -130,6 +125,7 @@ function displayCpuGifFunc(playerCard, cpuCard) {
       "beforeend", `<img src="./assets/gifs/robot_lost-gif.webp">`
     );
   }
+  cpuGifBox.scrollIntoView()
 }
 
 function cpuCardDisplayCycle(cpuCard) {
@@ -148,19 +144,17 @@ function cpuCardDisplayCycle(cpuCard) {
   displayCpuCardBottomName.insertAdjacentHTML("beforeend", `<p>${cpuCard.displayName}</p>`);
 
   displayCpuCardName.insertAdjacentHTML("beforeend",`<p class="fs-3">${cpuCard.name} of ${cpuCard.suit}</p>`);
+
+  displayCpuCard.scrollIntoView()
 }
 
 function displayCpuDrawGifFunc() {
-  // lightSummarySection.scrollIntoView()
-  // cpuGifBox.insertAdjacentHTML(
-  //   "beforeend", `<img src="./assets/gifs/cpu_draw_card-gif.webp">`
-  // );
-  
   // this forces the browser to GET the GIF for every drawn btn click. If user draws before the timed display finishes the draw GIF now fully resets
   
   cpuGifBox.insertAdjacentHTML(
     "beforeend", `<img src="./assets/gifs/cpu_draw_card-gif.webp?thingy=${performance.now()}">`
   );
+  cpuGifBox.scrollIntoView()
 }
 
 function playerCardDisplayCycle(playerCard) {
@@ -178,6 +172,8 @@ function playerCardDisplayCycle(playerCard) {
   displayPlayerCardBottomName.insertAdjacentHTML("beforeend", `<p>${playerCard.displayName}</p>`);
 
   displayPlayerCardName.insertAdjacentHTML("beforeend",`<p class="fs-3">${playerCard.name} of ${playerCard.suit}</p>`);
+
+  displayPlayerCard.scrollIntoView()
 }
 
 function displayPlayerGifFunc(playerCard){
@@ -198,7 +194,7 @@ function displayPlayerGifFunc(playerCard){
     playerGifBox.insertAdjacentHTML("beforeend", `<img src="./assets/gifs/king-gif.webp">`
     );
   } 
-  cpuGifBox.scrollIntoView()
+  playerGifBox.scrollIntoView()
 }
 
 function clearAllBox() {
@@ -226,10 +222,16 @@ function hideCardDisplaySection() {
   displayResultsBlock.className = "d-none"
 }
 
+allDoneBtn.addEventListener("click", () => {
+  doneWithGame() 
+});
+
 function doneWithGame() {
   hideCardDisplaySection()
   displayAllDoneSection.className = "bg-light pb-5 px-5 rounded"
 }
+
+
 
 function playAgain() {
 

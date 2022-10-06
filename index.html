@@ -69,7 +69,7 @@
           <h1>High Card Low Card</h1>
           <p class="lead">
             Here is a little project I thought would be fun. Just click the
-            <button onclick="playGame()" class="btn btn-sm btn-primary">Draw button!</button>
+            <button id="draw-card-btn" class="btn btn-sm btn-primary">Draw button!</button>
           </p>
         </div>
         <div id="all-done-section" class="d-none">
@@ -81,7 +81,7 @@
             more complex than I originally anticipated, but that's one of the best parts of building apps! Every project
             that leads to a "head banging" moment gives me more tools to build better apps, 
             faster and more efficiently than the last. If you care to play again you can click this 
-            <button onclick="playGame()" class="btn btn-sm btn-primary">Draw button!</button>. Have Fun!
+            <button class="btn btn-sm btn-primary">Draw button!</button>. Have Fun!
           </p>
         </div>
 
@@ -161,8 +161,8 @@
               <!-- you won GIF!! you lost GIF!!  -->
             </div>
               <div class="d-flex flex-row-reverse">     
-                <button onclick="playAgain()" class="btn btn-sm btn-primary">Draw again!</button>
-                <button onclick="doneWithGame()" class="btn btn-sm btn-primary me-1">I'm all done</button>
+                <button id="draw-again-btn" onclick="playAgain()" class="btn btn-sm btn-primary">Draw again!</button>
+                <button id="all-done-btn" onclick="doneWithGame()" class="btn btn-sm btn-primary me-1">I'm all done</button>
               </div>
           </div>
 
