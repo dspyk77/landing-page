@@ -20,6 +20,8 @@ var cardGameSection = document.querySelector("#card-game-section")
 var drawCardBtn = document.querySelector("#draw-card-btn")
 var drawAgainBtn = document.querySelector("#draw-agian-btn")
 var allDoneBtn = document.querySelector("#all-done-btn")
+var lastDrawCardBtn = document.querySelector("#last-draw-card-btn")
+
 
 
 // see ./assets/card-generation.js
@@ -32,7 +34,9 @@ drawCardBtn.addEventListener("click", () => {
   playGame()
 });
 
-
+lastDrawCardBtn.addEventListener("click", () => {
+  playGame()
+});
 
 function playGame() {
   // if user wants to play again after clicking "all done" btn 
