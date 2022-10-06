@@ -115,7 +115,7 @@ function displayResults(playerCard, cpuCard) {
       well the value is the same, not neccesaraly the same exact card, the suit might be different... whatever you get it just draw again</p>
     `);
   }
-  // wonLostMessage.scrollIntoView()
+  
   cpuGifBox.scrollIntoView()
 }
 
@@ -129,7 +129,7 @@ function displayCpuGifFunc(playerCard, cpuCard) {
       "beforeend", `<img src="./assets/gifs/robot_lost-gif.webp">`
     );
   }
-  cpuGifBox.scrollIntoView()
+  // cpuGifBox.scrollIntoView()
 }
 
 function cpuCardDisplayCycle(cpuCard) {
@@ -149,7 +149,7 @@ function cpuCardDisplayCycle(cpuCard) {
 
   displayCpuCardName.insertAdjacentHTML("beforeend",`<p class="fs-3">${cpuCard.name} of ${cpuCard.suit}</p>`);
 
-  displayCpuCard.scrollIntoView()
+  // displayCpuCard.scrollIntoView()
 }
 
 function displayCpuDrawGifFunc() {
@@ -158,7 +158,7 @@ function displayCpuDrawGifFunc() {
   cpuGifBox.insertAdjacentHTML(
     "beforeend", `<img src="./assets/gifs/cpu_draw_card-gif.webp?thingy=${performance.now()}">`
   );
-  cpuGifBox.scrollIntoView()
+  displayCpuCard.scrollIntoView()
 }
 
 function playerCardDisplayCycle(playerCard) {
@@ -177,7 +177,7 @@ function playerCardDisplayCycle(playerCard) {
 
   displayPlayerCardName.insertAdjacentHTML("beforeend",`<p class="fs-3">${playerCard.name} of ${playerCard.suit}</p>`);
 
-  displayPlayerCard.scrollIntoView()
+  cardDisplaySection.scrollIntoView()
 }
 
 function displayPlayerGifFunc(playerCard){
@@ -198,7 +198,7 @@ function displayPlayerGifFunc(playerCard){
     playerGifBox.insertAdjacentHTML("beforeend", `<img src="./assets/gifs/king-gif.webp">`
     );
   } 
-  playerGifBox.scrollIntoView()
+  // playerGifBox.scrollIntoView()
 }
 
 function clearAllBox() {
