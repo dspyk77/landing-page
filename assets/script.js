@@ -99,7 +99,6 @@ function stopTime() {
 
 function displayResults(playerCard, cpuCard) {
   displayResultsBlock.className = "d-block mt-4 mb-4"
-  wonLostMessage.scrollIntoView()
   if (playerCard.value > cpuCard.value) {
     wonLostMessage.insertAdjacentHTML("beforeend",`
       <img src="./assets/gifs/the_office_party.gif">
@@ -118,6 +117,7 @@ function displayResults(playerCard, cpuCard) {
       well the value is the same, not neccesaraly the same exact card, the suit might be different... whatever you get it just draw again</p>
     `);
   }
+  wonLostMessage.scrollIntoView()
 }
 
 function displayCpuGifFunc(playerCard, cpuCard) {
@@ -181,7 +181,7 @@ function playerCardDisplayCycle(playerCard) {
 }
 
 function displayPlayerGifFunc(playerCard){
-  cpuGifBox.scrollIntoView()
+  
   if (playerCard.value <= 3) {
     playerGifBox.insertAdjacentHTML("beforeend", `<img src="./assets/gifs/sweating-gif.webp">`
     );
@@ -198,6 +198,7 @@ function displayPlayerGifFunc(playerCard){
     playerGifBox.insertAdjacentHTML("beforeend", `<img src="./assets/gifs/king-gif.webp">`
     );
   } 
+  cpuGifBox.scrollIntoView()
 }
 
 function clearAllBox() {
