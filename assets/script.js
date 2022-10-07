@@ -8,6 +8,8 @@ function getCopyrightYear() {
 
 getCopyrightYear()
 
+copyrightYears.innerHTML = new Date().getFullYear();
+
 
 
 
