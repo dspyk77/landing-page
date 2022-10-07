@@ -203,7 +203,6 @@ function displayPlayerGifFunc(playerCard){
     playerGifBox.insertAdjacentHTML("beforeend", `<img src="./assets/gifs/king-gif.webp">`
     );
   } 
-  // playerGifBox.scrollIntoView()
 }
 
 function clearAllBox() {
@@ -235,6 +234,7 @@ function doneWithGame() {
   hideCardDisplaySection()
 
   displayAllDoneSection.className = "bg-light pb-5 px-5 rounded"
+  displayAllDoneSection.scrollIntoView()
 }
 
 function playAgain() {
